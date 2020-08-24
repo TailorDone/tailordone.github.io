@@ -13,5 +13,6 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, World!\nThis is Taylor! \n";
     std::cout << 2+2;
     printf("\n");
+    std::cout <<"Testing this commit through the terminal \n";
     return 0;
 }
