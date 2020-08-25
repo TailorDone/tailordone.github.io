@@ -2,7 +2,7 @@
 //  main.cpp
 //  GiveChange
 //
-//  Created by Taylor Dunn on 8/25/20.
+//  Created by Taylor Dunn on 8/25/20
 //  Copyright © 2020 Taylor Dunn. All rights reserved.
 //
 
