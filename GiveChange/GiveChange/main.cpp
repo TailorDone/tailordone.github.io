@@ -15,10 +15,7 @@ int main(int argc, const char * argv[]) {
     int amountGiven;
     std::cout <<"Enter the amount paid in cents? ";
     std::cin >> amountGiven;
-    int quarters;
-    int dimes;
-    int nickels;
-    int pennies;
+    int quarters, dimes, nickels, pennies;
     int initialChange = amountGiven - costOfItem;
     quarters = initialChange / 25;
     int changeBack = initialChange;
