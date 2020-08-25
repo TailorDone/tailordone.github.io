@@ -16,15 +16,15 @@ int main(int argc, const char * argv[]) {
     std::cout <<"Enter the amount paid in cents?\n";
     std::cin >> amountGiven;
     int quarters, dimes, nickels, pennies;
-    int initialChange = amountGiven - costOfItem;
-    quarters = initialChange / 25;
-    int remainderChange = initialChange;
+    int totalChange = amountGiven - costOfItem;
+    quarters = totalChange / 25;
+    int remainderChange = totalChange;
     remainderChange = remainderChange - quarters * 25;
     dimes = remainderChange / 10;
     remainderChange = remainderChange - dimes * 10;
     nickels = remainderChange / 5;
     remainderChange = remainderChange - nickels * 5;
     pennies = remainderChange;
-    std::cout << "Change: " << initialChange << " \nQuarters: " << quarters << "\nDimes: " << dimes << "\nNickles: " << nickels << "\nPennies: " << pennies << std::endl;
+    std::cout << "Change: " << totalChange << " \nQuarters: " << quarters << "\nDimes: " << dimes << "\nNickles: " << nickels << "\nPennies: " << pennies << std::endl;
     return 0;
 }
