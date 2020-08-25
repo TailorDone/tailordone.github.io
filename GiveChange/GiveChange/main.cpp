@@ -10,21 +10,21 @@
 
 int main(int argc, const char * argv[]) {
     int costOfItem;
-    std::cout << "What is the cost of your item in cents? ";
+    std::cout << "What is the cost of your item in cents?\n";
     std::cin >> costOfItem;
     int amountGiven;
-    std::cout <<"Enter the amount paid in cents? ";
+    std::cout <<"Enter the amount paid in cents?\n";
     std::cin >> amountGiven;
     int quarters, dimes, nickels, pennies;
     int initialChange = amountGiven - costOfItem;
     quarters = initialChange / 25;
-    int changeBack = initialChange;
-    changeBack = changeBack - quarters * 25;
-    dimes = changeBack / 10;
-    changeBack = changeBack - dimes * 10;
-    nickels = changeBack / 5;
-    changeBack = changeBack - nickels * 5;
-    pennies = changeBack;
-    std::cout << "Change: " << initialChange << " \nQuarters: " << quarters << "\nDimes: " << dimes << "\nNickles: " << nickels << "\nPennies: " << pennies << "\n";
+    int remainderChange = initialChange;
+    remainderChange = remainderChange - quarters * 25;
+    dimes = remainderChange / 10;
+    remainderChange = remainderChange - dimes * 10;
+    nickels = remainderChange / 5;
+    remainderChange = remainderChange - nickels * 5;
+    pennies = remainderChange;
+    std::cout << "Change: " << initialChange << " \nQuarters: " << quarters << "\nDimes: " << dimes << "\nNickles: " << nickels << "\nPennies: " << pennies << std::endl;
     return 0;
 }
