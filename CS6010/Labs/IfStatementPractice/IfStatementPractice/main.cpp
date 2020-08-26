@@ -26,13 +26,13 @@ int main(int argc, const char * argv[]) {
         std::cout << "Bad news! you aren't old enough to run for senate.\n";
     }
     //Finds out the generation of the user
-    if(age>=80){
+    if(age>80){
         std::cout << "You are part of the greatest generation!\n";
-    } else if(age >= 60) {
+    } else if(age > 60) {
         std::cout << "You are a baby boomer!\n";
-    } else if(age >= 40) {
+    } else if(age > 40) {
         std::cout << "You are in generation X!\n";
-    } else if(age >= 20) {
+    } else if(age > 20) {
         std::cout << "You are a millennial!\n";
     } else {
         std::cout << "You are an iKid!\n";
