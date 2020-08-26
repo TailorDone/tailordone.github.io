@@ -16,13 +16,13 @@ int main(int argc, const char * argv[]) {
     //See if user is old enough to vote
     if(age>=18){
         std::cout << "Congrats! You are old enough to vote!\n";
-    } else{
+    } else {
         std::cout << "Bad news! you aren't old enough to vote.\n";
     }
     //See if user is old enough to run for senate
     if(age>=30){
         std::cout << "Congrats! You are old enough to run for senate!\n";
-    } else{
+    } else {
         std::cout << "Bad news! you aren't old enough to run for senate.\n";
     }
     //Finds out the generation of the user
@@ -68,11 +68,9 @@ int main(int argc, const char * argv[]) {
     //Determine whether or not the user will be sleeping in
     if (isHoliday == true && hasChildren == false){
         std::cout << "It's a holiday! Enjoy sleeping in!\n";
-    }
-    else if (isWeekday == true || hasChildren == true){
+    } else if (isWeekday == true || hasChildren == true){
         std::cout << "You won't be sleeping in today!\n";
-    }
-    else {
+    } else {
         std::cout << "You get to sleep in today!\n";
     }
 }
