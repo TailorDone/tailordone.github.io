@@ -7,14 +7,16 @@
 //
 
 #include <iostream>
+using namespace std;
 
 int main(int argc, const char * argv[]) {
-    std::string romanNumeral = "";
+    string romanNumeral = "";
     int number;
-    std::cout << "Give a number, any number!" << std::endl;
-    std::cin >> number;
-    if (number <= 0) {
-        std::cout << "Invalid Input. Must input a postive integer." << std::endl;
+    //Anything above 3999 would use a different roman numeral not given on this list.
+    cout << "Enter a number between 1 and 3999:" << endl;
+    cin >> number;
+    if (number <= 0 || number > 3999) {
+        cout << "Invalid Input. Must input a postive integer between 1 - 3999" << endl;
         return 1;
     }
     int startingNumber = number;
@@ -60,6 +62,6 @@ int main(int argc, const char * argv[]) {
             romanNumeral += "I";
         }
     }
-    std::cout << "Your number " << startingNumber << " as a roman numeral is : " << romanNumeral << std::endl;
+    cout << "Your number " << startingNumber << " as a roman numeral is : " << romanNumeral << endl;
     return 0;
 }
