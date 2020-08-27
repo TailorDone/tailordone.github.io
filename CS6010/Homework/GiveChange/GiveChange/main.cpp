@@ -10,17 +10,17 @@
 
 int main(int argc, const char * argv[]) {
     int costOfItem;
+    int amountPaid;
     std::cout << "What is the cost of your item in cents?\n";
     std::cin >> costOfItem;
-    int amountPaid;
     std::cout <<"Enter the amount paid in cents?\n";
     std::cin >> amountPaid;
+    int totalChange = amountPaid - costOfItem;
     //  If user enters a negative value, the program will quit.
     if (amountPaid < 0 || costOfItem < 0) {
         std::cout << "Cannot enter a negative value. Please try again." << std::endl;
         return 1;
     }
-    int totalChange = amountPaid - costOfItem;
     //  If user is short funds the vending machine will tell user how much more funds are needed to complete the purchase and will quit.
     if (amountPaid < costOfItem){
         std::cout << "Insufficient funds! Please insert " << -totalChange << " cents more." << std::endl;
@@ -54,7 +54,7 @@ int main(int argc, const char * argv[]) {
     if (quarters == 3){
         quarters = 2;
         dimes = 2;
-        //There is a chance a nickle has already been given
+        //There is a chance a nickel has already been given
         nickels +=1;
     }
     std::cout << "Change: " << totalChange << " \nQuarters: " << quarters << "\nDimes: " << dimes << "\nNickles: " << nickels << "\nPennies: " << pennies << std::endl;
