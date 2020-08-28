@@ -129,6 +129,11 @@ double averageVowelsPerWord(string s){
     return average;
 }
 
+/*
+* Returns the reading level for the string
+* @Param string s A string
+* @Return Returns a double representing the average word length
+*/
 double readingLevel(string s){
     int totalChars = numConsonants(s) + numVowels(s);
     double averageWordLength = (totalChars * 1.0) / numWords(s);
