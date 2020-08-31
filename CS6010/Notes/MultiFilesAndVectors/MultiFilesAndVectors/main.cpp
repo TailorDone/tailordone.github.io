@@ -25,11 +25,9 @@ int multBy5(int number){
 }
 
 bool isVowel(char c){
-    if (tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u' ||tolower(c) == 'y'){
-        return true;
-    }
-    return false;
+    return (tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u' ||tolower(c) == 'y');
 }
+
 //Holds your tests
 void runTests(){
     assert(multBy5(3) == 15);
