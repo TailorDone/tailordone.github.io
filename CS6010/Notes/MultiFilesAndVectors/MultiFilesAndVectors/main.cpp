@@ -78,7 +78,7 @@ int main(int argc, const char * argv[]) {
     for(float f: vf){
         cout << f << endl;
     }
-    
+
     return 0;
 }
 
