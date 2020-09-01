@@ -11,7 +11,7 @@ using namespace std;
 
 Deck createDeck(){
     Deck myDeck;
-    vector<string> suits = {"S", "C", "D", "H"};
+    vector<string> suits = {"Spades", "Clubs", "Diamonds", "Hearts"};
     for (string suit : suits){
         for (int i = 1; i <= 13; i++){
             Card newCard = {suit, i};
@@ -23,14 +23,14 @@ Deck createDeck(){
 
 void printCard(Card card){
     if (card.rank == 11){
-        cout << 'J' << card.suit << endl;
+        cout << 'J' << " of " << card.suit << endl;
     } else if (card.rank == 12){
-        cout << 'Q' << card.suit << endl;
+        cout << 'Q' << " of " << card.suit << endl;
     } else if (card.rank == 13){
-        cout << 'K' << card.suit << endl;
+        cout << 'K' << " of " << card.suit << endl;
     } else if (card.rank == 1){
-        cout << 'A' << card.suit << endl;
+        cout << 'A' << " of " << card.suit << endl;
     } else {
-        cout << card.rank << card.suit << endl;
+        cout << card.rank << " of " << card.suit << endl;
     }
 }
