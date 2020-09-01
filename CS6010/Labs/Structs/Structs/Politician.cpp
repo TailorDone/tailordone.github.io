@@ -30,11 +30,11 @@ vector<Politician> democrats(vector<Politician> politicians){
 * Returns a vector of republican politicans
 */
 vector<Politician> federalRepublicans(vector<Politician> politicians){
-    vector<Politician> republicans;
+    vector<Politician> fedReps;
     for (Politician person : politicians){
-        if (person.democrat == false){
-        republicans.push_back(person);
+        if (person.democrat == false && person.state == false){
+        fedReps.push_back(person);
         }
     }
-    return republicans;
+    return fedReps;
 }
