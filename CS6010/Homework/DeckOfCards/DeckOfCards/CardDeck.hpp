@@ -52,4 +52,8 @@ bool isStraightFlush(const Deck& deck);
 
 bool isFullHouse(const Deck& deck);
 
+void runTests();
+void printStats(int upperBounds, Deck& deck);
+void runHandAnalysis(const Deck& deck);
+
 #endif /* CardDeck_hpp */
