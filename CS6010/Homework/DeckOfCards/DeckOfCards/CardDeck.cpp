@@ -61,6 +61,7 @@ void swap(Card& firstIndex, Card& swapIndex){
     swapIndex = temp;
     }
 
+//Finds the minimum rank in a deck
 int findMin(const Deck& deck){
     int least = deck.cards[0].rank;
     for(int i = 0; i < deck.cards.size(); i ++){
@@ -71,6 +72,7 @@ int findMin(const Deck& deck){
   return least;
 }
 
+//Finds the maximum rank in a deck
 int findMax(const Deck& deck){
     int max = deck.cards[0].rank;
     for(Card c : deck.cards){
@@ -80,6 +82,7 @@ int findMax(const Deck& deck){
     return max;
 }
 
+//Looks for a particular rank in a deck
 bool contains(const Deck& deck, int lookFor){
     for(Card c : deck.cards){
       if(c.rank == lookFor)
@@ -88,6 +91,7 @@ bool contains(const Deck& deck, int lookFor){
   return false;
 }
 
+//Shuffles a deck
 Deck shuffle(Deck& deck){
     for (int currentIndex = 0; currentIndex < deck.cards.size(); currentIndex++){
         int randomIndex = newIndex(deck);
@@ -97,6 +101,7 @@ Deck shuffle(Deck& deck){
     return deck;
 }
 
+//Determines if the hand is a flush
 bool isFlush(const Deck& deck){
     string suit = deck.cards[0].suit;
     for (int i = 1; i < 5; i++){
@@ -107,6 +112,7 @@ bool isFlush(const Deck& deck){
     return true;
 }
 
+//draws the top 5 cards from a deck and returns a new 5 card deck
 Deck fiveCards(Deck deck){
     Deck fiveCardDraw;
     for (int i = 0; i < 5; i++){
@@ -115,30 +121,53 @@ Deck fiveCards(Deck deck){
     return fiveCardDraw;
 }
 
-bool isStraight(const Deck& deck){
-    Deck playerHand = fiveCards(deck);
-    int min = findMin(playerHand);
-  int range = min + 4;
-  for(int i = min; i < range; i++){
-      if(!(contains(playerHand, i)))
-      return false;
-  }
-  return true;
-};
-
-bool isStraightFlush(const Deck& deck){
-    return (isStraight(deck) == true && isFlush(deck) == true);
+//finds the smallest rank in a deck from a given start value
+int findSmallest(Deck& deck, int start){
+    int minLocation = start;
+    for (int i = start; i < deck.cards.size(); i++){
+        if (deck.cards[i].rank < deck.cards[minLocation].rank){
+                minLocation = i;
+            }
+        }
+        return minLocation;
 }
 
+//sorts a hand from least to greatest rank
+Deck sortHand(Deck& deck){
+    Deck playerHand = fiveCards(deck);
+    for(int i =0; i <5; i++){
+        int smallest = findSmallest(playerHand, i);
+        swap(playerHand.cards[i], playerHand.cards[smallest]);
+    }
+    return playerHand;
+}
+
+//determines if a hand is a straight
+bool isStraight(Deck& deck){
+    Deck sorted = sortHand(deck);
+    for (int i = 0; i < 4; i++){
+        if (sorted.cards[i].rank + 1 != sorted.cards[i+1].rank){
+            return false;
+        }
+    }
+    return true;
+}
+
+//determines if a hand is a straight flush
+bool isStraightFlush(Deck& deck){
+    return (isStraight(deck) && isFlush(deck));
+}
+
+//determines if a hand is a royal flush
 bool isRoyalFlush(const Deck& deck){
     Deck playerHand = fiveCards(deck);
     int min = findMin(playerHand);
     bool ans;
     (isFlush(playerHand) && isStraight(playerHand) && min == 10) ? ans = true : ans = false;
     return ans;
-
 }
 
+//determines if a hand is a full house
 bool isFullHouse(const Deck& deck){
     Deck playerHand = fiveCards(deck);
     int min = findMin(playerHand);
@@ -159,7 +188,8 @@ bool isFullHouse(const Deck& deck){
     return true;
 }
 
-void runHandAnalysis(const Deck& deck){
+//runs hand analysis
+void runHandAnalysis(Deck& deck){
     if(isFlush(deck)){
         Flush++;
     }
@@ -228,7 +258,20 @@ void runTests(){
         newDeck2.cards.push_back(card3);
         newDeck2.cards.push_back(card4);
         newDeck2.cards.push_back(card5);
-        assert(isFullHouse(newDeck2)==true);
+        assert(isFullHouse(newDeck2));
+        
+        Deck newDeck3;
+        Card card6 = {"Spades", 2};
+        Card card7 = {"Clubs", 3};
+        Card card8 = {"Hearts", 5};
+        Card card9 = {"Clubs", 4};
+        Card card10 = {"Diamonds", 6};
+        newDeck3.cards.push_back(card6);
+        newDeck3.cards.push_back(card7);
+        newDeck3.cards.push_back(card8);
+        newDeck3.cards.push_back(card9);
+        newDeck3.cards.push_back(card10);
+        assert(isStraight(newDeck3));
     }
 }
 

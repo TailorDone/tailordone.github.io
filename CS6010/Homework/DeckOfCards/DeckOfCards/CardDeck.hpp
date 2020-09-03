@@ -23,6 +23,7 @@ struct Deck{
     vector<Card> cards;
 };
 
+//Creates a deck of cards
 Deck createDeck();
 
 //Prints a Card
@@ -34,26 +35,36 @@ int newIndex(Deck& deck);
 //Swaps a card with another card in a deck
 void swap(Card& firstIndex, Card& swapIndex);
 
+//finds the minimum ranking card in a deck
 int findMin(const Deck& deck);
 
+//finds the maximum ranking card in a deck
 int findMax(const Deck& deck);
 
+//Searches a deck to find a particular rank
 bool contains(const Deck& deck, int lookFor);
 
+//Shuffles a deck of cards
 Deck shuffle(Deck& deck);
 
+//Determines if a hand is a flush
 bool isFlush(const Deck& deck);
 
-Deck fiveCards(Deck deck);
+//Determines if a hand is a straight flush
+bool isStraightFlush(Deck& deck);
 
-bool isStraight(const Deck& deck);
+//Determines if a hand is a royal flush
+bool isRoyalFlush(const Deck& deck);
 
-bool isStraightFlush(const Deck& deck);
-
+//Determines if a hand is a full house
 bool isFullHouse(const Deck& deck);
 
-void runTests();
+//runs the analysis for a deck of cards
+void runHandAnalysis(Deck& deck);
+
 void printStats(int upperBounds, Deck& deck);
-void runHandAnalysis(const Deck& deck);
+
+//runsTest
+void runTests();
 
 #endif /* CardDeck_hpp */

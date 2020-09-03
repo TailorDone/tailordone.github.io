@@ -12,17 +12,10 @@
 
 int main(int argc, const char * argv[]) {
     srand(time(NULL));
-    Deck newDeck = createDeck();
-    for (Card card : newDeck.cards){
-        printCard(card);
-    }
-    shuffle(newDeck);
-    for (Card card : newDeck.cards){
-        printCard(card);
-    }
     runTests();
     Deck deck = createDeck();
     printStats(100, deck);
     printStats(10000, deck);
+    printStats(100000, deck);
     return 0;
 }
