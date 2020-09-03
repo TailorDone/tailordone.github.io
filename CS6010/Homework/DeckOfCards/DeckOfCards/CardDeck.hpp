@@ -23,10 +23,33 @@ struct Deck{
     vector<Card> cards;
 };
 
-//Creates a Deck of Cards
 Deck createDeck();
 
-//Prints rank and suit of a card
+//Prints a Card
 void printCard(Card card);
+
+//Gives a random index for a deck of cards.
+int newIndex(Deck& deck);
+
+//Swaps a card with another card in a deck
+void swap(Card& firstIndex, Card& swapIndex);
+
+int findMin(const Deck& deck);
+
+int findMax(const Deck& deck);
+
+bool contains(const Deck& deck, int lookFor);
+
+Deck shuffle(Deck& deck);
+
+bool isFlush(const Deck& deck);
+
+Deck fiveCards(Deck deck);
+
+bool isStraight(const Deck& deck);
+
+bool isStraightFlush(const Deck& deck);
+
+bool isFullHouse(const Deck& deck);
 
 #endif /* CardDeck_hpp */
