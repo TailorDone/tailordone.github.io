@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F8DA1BF124FEEDCD000E1FD8 /* CardDeck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8DA1BEF24FEEDCD000E1FD8 /* CardDeck.cpp */; };
-		F8DA1BF224FEEDCD000E1FD8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8DA1BF024FEEDCD000E1FD8 /* main.cpp */; };
+		F8DA1BD224FEB1F1000E1FD8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8DA1BD124FEB1F1000E1FD8 /* main.cpp */; };
+		F8DA1BDA24FEB223000E1FD8 /* CardDeck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F8DA1BD824FEB223000E1FD8 /* CardDeck.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		F8DA1BE224FEED97000E1FD8 /* CopyFiles */ = {
+		F8DA1BCC24FEB1F1000E1FD8 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -24,14 +24,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F8DA1BE424FEED97000E1FD8 /* Poker */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Poker; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8DA1BEE24FEEDCD000E1FD8 /* CardDeck.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = CardDeck.hpp; path = ../../../Homework/DeckOfCards/DeckOfCards/CardDeck.hpp; sourceTree = "<group>"; };
-		F8DA1BEF24FEEDCD000E1FD8 /* CardDeck.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CardDeck.cpp; path = ../../../Homework/DeckOfCards/DeckOfCards/CardDeck.cpp; sourceTree = "<group>"; };
-		F8DA1BF024FEEDCD000E1FD8 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../Homework/DeckOfCards/DeckOfCards/main.cpp; sourceTree = "<group>"; };
+		F8DA1BCE24FEB1F1000E1FD8 /* DeckOfCards */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DeckOfCards; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8DA1BD124FEB1F1000E1FD8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		F8DA1BD824FEB223000E1FD8 /* CardDeck.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CardDeck.cpp; sourceTree = "<group>"; };
+		F8DA1BD924FEB223000E1FD8 /* CardDeck.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CardDeck.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F8DA1BE124FEED97000E1FD8 /* Frameworks */ = {
+		F8DA1BCB24FEB1F1000E1FD8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,67 +41,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F8DA1BDB24FEED97000E1FD8 = {
+		F8DA1BC524FEB1F1000E1FD8 = {
 			isa = PBXGroup;
 			children = (
-				F8DA1BE624FEED97000E1FD8 /* Poker */,
-				F8DA1BE524FEED97000E1FD8 /* Products */,
+				F8DA1BD024FEB1F1000E1FD8 /* DeckOfCards */,
+				F8DA1BCF24FEB1F1000E1FD8 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		F8DA1BE524FEED97000E1FD8 /* Products */ = {
+		F8DA1BCF24FEB1F1000E1FD8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F8DA1BE424FEED97000E1FD8 /* Poker */,
+				F8DA1BCE24FEB1F1000E1FD8 /* DeckOfCards */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F8DA1BE624FEED97000E1FD8 /* Poker */ = {
+		F8DA1BD024FEB1F1000E1FD8 /* DeckOfCards */ = {
 			isa = PBXGroup;
 			children = (
-				F8DA1BEF24FEEDCD000E1FD8 /* CardDeck.cpp */,
-				F8DA1BEE24FEEDCD000E1FD8 /* CardDeck.hpp */,
-				F8DA1BF024FEEDCD000E1FD8 /* main.cpp */,
+				F8DA1BD124FEB1F1000E1FD8 /* main.cpp */,
+				F8DA1BD824FEB223000E1FD8 /* CardDeck.cpp */,
+				F8DA1BD924FEB223000E1FD8 /* CardDeck.hpp */,
 			);
-			path = Poker;
+			path = DeckOfCards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F8DA1BE324FEED97000E1FD8 /* Poker */ = {
+		F8DA1BCD24FEB1F1000E1FD8 /* DeckOfCards */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F8DA1BEB24FEED97000E1FD8 /* Build configuration list for PBXNativeTarget "Poker" */;
+			buildConfigurationList = F8DA1BD524FEB1F1000E1FD8 /* Build configuration list for PBXNativeTarget "DeckOfCards" */;
 			buildPhases = (
-				F8DA1BE024FEED97000E1FD8 /* Sources */,
-				F8DA1BE124FEED97000E1FD8 /* Frameworks */,
-				F8DA1BE224FEED97000E1FD8 /* CopyFiles */,
+				F8DA1BCA24FEB1F1000E1FD8 /* Sources */,
+				F8DA1BCB24FEB1F1000E1FD8 /* Frameworks */,
+				F8DA1BCC24FEB1F1000E1FD8 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Poker;
-			productName = Poker;
-			productReference = F8DA1BE424FEED97000E1FD8 /* Poker */;
+			name = DeckOfCards;
+			productName = DeckOfCards;
+			productReference = F8DA1BCE24FEB1F1000E1FD8 /* DeckOfCards */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F8DA1BDC24FEED97000E1FD8 /* Project object */ = {
+		F8DA1BC624FEB1F1000E1FD8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Taylor Dunn";
 				TargetAttributes = {
-					F8DA1BE324FEED97000E1FD8 = {
+					F8DA1BCD24FEB1F1000E1FD8 = {
 						CreatedOnToolsVersion = 11.6;
 					};
 				};
 			};
-			buildConfigurationList = F8DA1BDF24FEED97000E1FD8 /* Build configuration list for PBXProject "Poker" */;
+			buildConfigurationList = F8DA1BC924FEB1F1000E1FD8 /* Build configuration list for PBXProject "DeckOfCards" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -109,30 +109,30 @@
 				en,
 				Base,
 			);
-			mainGroup = F8DA1BDB24FEED97000E1FD8;
-			productRefGroup = F8DA1BE524FEED97000E1FD8 /* Products */;
+			mainGroup = F8DA1BC524FEB1F1000E1FD8;
+			productRefGroup = F8DA1BCF24FEB1F1000E1FD8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F8DA1BE324FEED97000E1FD8 /* Poker */,
+				F8DA1BCD24FEB1F1000E1FD8 /* DeckOfCards */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F8DA1BE024FEED97000E1FD8 /* Sources */ = {
+		F8DA1BCA24FEB1F1000E1FD8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8DA1BF224FEEDCD000E1FD8 /* main.cpp in Sources */,
-				F8DA1BF124FEEDCD000E1FD8 /* CardDeck.cpp in Sources */,
+				F8DA1BDA24FEB223000E1FD8 /* CardDeck.cpp in Sources */,
+				F8DA1BD224FEB1F1000E1FD8 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		F8DA1BE924FEED97000E1FD8 /* Debug */ = {
+		F8DA1BD324FEB1F1000E1FD8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -190,7 +190,7 @@
 			};
 			name = Debug;
 		};
-		F8DA1BEA24FEED97000E1FD8 /* Release */ = {
+		F8DA1BD424FEB1F1000E1FD8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -241,7 +241,7 @@
 			};
 			name = Release;
 		};
-		F8DA1BEC24FEED97000E1FD8 /* Debug */ = {
+		F8DA1BD624FEB1F1000E1FD8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -249,7 +249,7 @@
 			};
 			name = Debug;
 		};
-		F8DA1BED24FEED97000E1FD8 /* Release */ = {
+		F8DA1BD724FEB1F1000E1FD8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -260,25 +260,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F8DA1BDF24FEED97000E1FD8 /* Build configuration list for PBXProject "Poker" */ = {
+		F8DA1BC924FEB1F1000E1FD8 /* Build configuration list for PBXProject "DeckOfCards" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F8DA1BE924FEED97000E1FD8 /* Debug */,
-				F8DA1BEA24FEED97000E1FD8 /* Release */,
+				F8DA1BD324FEB1F1000E1FD8 /* Debug */,
+				F8DA1BD424FEB1F1000E1FD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F8DA1BEB24FEED97000E1FD8 /* Build configuration list for PBXNativeTarget "Poker" */ = {
+		F8DA1BD524FEB1F1000E1FD8 /* Build configuration list for PBXNativeTarget "DeckOfCards" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F8DA1BEC24FEED97000E1FD8 /* Debug */,
-				F8DA1BED24FEED97000E1FD8 /* Release */,
+				F8DA1BD624FEB1F1000E1FD8 /* Debug */,
+				F8DA1BD724FEB1F1000E1FD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F8DA1BDC24FEED97000E1FD8 /* Project object */;
+	rootObject = F8DA1BC624FEB1F1000E1FD8 /* Project object */;
 }
