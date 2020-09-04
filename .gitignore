@@ -22,6 +22,14 @@
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
+*.o
+*.out
+*.gch
+*.pbxproj
+*.xcworkspacedata
+*.plist
+*.xcscheme
+
 
 ## Gcc Patch
 **/*.gcno
