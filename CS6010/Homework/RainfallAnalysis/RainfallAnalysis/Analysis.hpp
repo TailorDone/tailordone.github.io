@@ -28,21 +28,26 @@ double monthlyAverage(vector<RainfallInfo>& rainData, string searchMonth);
 //Finds the total average rainfall for a vector<RainfallInfo>
 double totalAverage(vector<RainfallInfo>& rainData);
 
+//A vector of the months of the year
+vector<string> createMonths();
+
 //Finds the smallest value in a vector of doubles
 int findSmallest(vector<double>& averages, int start);
 
 //Sorts data in ascending order and returns the 4 smallest values
-vector<double> sortRainfallSmallest(vector<double>& rainData);
+vector<double> sortRainfallSmallest(vector<RainfallInfo>& rainData);
 
 //Finds the largest value in a vector of doubles
 int findLargest(vector<double>& averages, int start);
 
 //Sorts data in descending order and returns the 4 largest values
-vector<double> sortRainfallLargest(vector<double>& rainData);
+vector<double> sortRainfallLargest(vector<RainfallInfo>& rainData);
 
 //Takes a vector and turns it into a string
 string printVector(vector<double>& rainData);
 
 //Convert a vector to a string
 string vectorToString(vector<double> values);
+
+double returnValue(vector<RainfallInfo>& rainData, int index);
 #endif /* Analysis_hpp */

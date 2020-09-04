@@ -20,6 +20,10 @@ double monthlyAverage(vector<RainfallInfo>& rainData, string searchMonth){
     double average = totalRain/monthCount;
     return average;
 }
+vector<string> createMonths(){
+    vector<string> months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    return months;
+}
 
 vector<double> averages(vector<RainfallInfo>& rainData){
     vector<double> monthlyAverages;
@@ -114,7 +118,7 @@ vector<double> sortRainfallLargest(vector<RainfallInfo>& rainData){
 string vectorToString(vector<double> values){
     string s;
     for (int i = 0; i < values.size(); i ++){
-        if (i!=0){
+        if (i!=values.size()){
             s+= to_string(values[i]) + " ";
         }
         else{
@@ -124,6 +128,9 @@ string vectorToString(vector<double> values){
     return s;
 }
 
+double returnValue(vector<RainfallInfo>& rainData, int index){
+    return rainData[index].rainfall;
+}
 //double findMedian(vector<RainfallInfo>& rainData){
 //    vector<double> sorted = //TODO make a sorted month function
 //    double median;
