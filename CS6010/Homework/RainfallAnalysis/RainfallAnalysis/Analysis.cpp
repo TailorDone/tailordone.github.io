@@ -20,6 +20,7 @@ double monthlyAverage(vector<RainfallInfo>& rainData, string searchMonth){
     double average = totalRain/monthCount;
     return average;
 }
+
 vector<string> createMonths(){
     vector<string> months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     return months;
@@ -27,70 +28,37 @@ vector<string> createMonths(){
 
 vector<double> averages(vector<RainfallInfo>& rainData){
     vector<double> monthlyAverages;
-    double januaryAverage = monthlyAverage(rainData, "January");
-    double februaryAverage = monthlyAverage(rainData, "February");
-    double marchAverage = monthlyAverage(rainData, "March");
-    double aprilAverage = monthlyAverage(rainData, "April");
-    double mayAverage = monthlyAverage(rainData, "May");
-    double juneAverage = monthlyAverage(rainData, "June");
-    double julyAverage = monthlyAverage(rainData, "July");
-    double augustAverage = monthlyAverage(rainData, "August");
-    double septemberAverage = monthlyAverage(rainData, "September");
-    double octoberAverage = monthlyAverage(rainData, "October");
-    double novemberAverage = monthlyAverage(rainData, "November");
-    double decemberAverage = monthlyAverage(rainData, "December");
-    monthlyAverages.push_back(januaryAverage);
-    monthlyAverages.push_back(februaryAverage);
-    monthlyAverages.push_back(marchAverage);
-    monthlyAverages.push_back(aprilAverage);
-    monthlyAverages.push_back(mayAverage);
-    monthlyAverages.push_back(juneAverage);
-    monthlyAverages.push_back(julyAverage);
-    monthlyAverages.push_back(augustAverage);
-    monthlyAverages.push_back(septemberAverage);
-    monthlyAverages.push_back(octoberAverage);
-    monthlyAverages.push_back(novemberAverage);
-    monthlyAverages.push_back(decemberAverage);
+    for (string month : createMonths()){
+        monthlyAverages.push_back(monthlyAverage(rainData, month));
+    }
     return monthlyAverages;
 }
 
-double totalAverage(vector<RainfallInfo>& rainData){
-    double januaryAverage = monthlyAverage(rainData, "January");
-    double februaryAverage = monthlyAverage(rainData, "February");
-    double marchAverage = monthlyAverage(rainData, "March");
-    double aprilAverage = monthlyAverage(rainData, "April");
-    double mayAverage = monthlyAverage(rainData, "May");
-    double juneAverage = monthlyAverage(rainData, "June");
-    double julyAverage = monthlyAverage(rainData, "July");
-    double augustAverage = monthlyAverage(rainData, "August");
-    double septemberAverage = monthlyAverage(rainData, "September");
-    double octoberAverage = monthlyAverage(rainData, "October");
-    double novemberAverage = monthlyAverage(rainData, "November");
-    double decemberAverage = monthlyAverage(rainData, "December");
-    double averageRainfall = (januaryAverage + februaryAverage + marchAverage + aprilAverage + mayAverage + juneAverage + julyAverage + augustAverage + septemberAverage + octoberAverage + novemberAverage + decemberAverage) /12;
-    return averageRainfall;
+//Fix Average
+double totalAverage(vector<double>& rainData){
+    double total = 0;
+    for(double month : rainData){
+        total += month;
+    }
+    return total;
 }
 
 int findSmallest(vector<RainfallInfo>& averages, int start){
     int minLocation = start;
     for (int i = start; i < averages.size(); i++){
         if (averages[i].rainfall< averages[minLocation].rainfall){
-                minLocation = i;
-            }
+            minLocation = i;
         }
-        return minLocation;
+    }
+    return minLocation;
 }
 
-vector<double> sortRainfallSmallest(vector<RainfallInfo>& rainData){
-    vector<double> lowestFour;
+vector<RainfallInfo> sortRainfallSmallest(vector<RainfallInfo>& rainData){
     for(int i =0; i <rainData.size(); i++){
         double smallest = findSmallest(rainData, i);
         swap(rainData[i], rainData[smallest]);
     }
-    for (int i = 0; i < 4; i++){
-        lowestFour.push_back(rainData[i].rainfall);
-    }
-    return lowestFour;
+    return rainData;
 }
 
 int findLargest(vector<RainfallInfo>& averages, int start){
@@ -100,20 +68,16 @@ int findLargest(vector<RainfallInfo>& averages, int start){
                 maxLocation = i;
             }
         }
-        return maxLocation;
+    return maxLocation;
 }
 
-vector<double> sortRainfallLargest(vector<RainfallInfo>& rainData){
-    vector<double> largestFour;
+vector<RainfallInfo> sortRainfallLargest(vector<RainfallInfo>& rainData){
         for(int i =0; i <rainData.size(); i++){
             double smallest = findLargest(rainData, i);
             swap(rainData[i], rainData[smallest]);
         }
-        for (int i = 0; i < 4; i++){
-            largestFour.push_back(rainData[i].rainfall);
-        }
-        return largestFour;
-    }
+    return rainData;
+}
 
 string vectorToString(vector<double> values){
     string s;
@@ -131,15 +95,8 @@ string vectorToString(vector<double> values){
 double returnValue(vector<RainfallInfo>& rainData, int index){
     return rainData[index].rainfall;
 }
-//double findMedian(vector<RainfallInfo>& rainData){
-//    vector<double> sorted = //TODO make a sorted month function
-//    double median;
-//    int elements = (int)rainData.size();
-//    if (elements % 2 ==1){
-//        median = sorted[(elements/2) +1];
-//    }
-//    else{
-//        median = sorted[elements/2];
-//    }
-//    return median;
-//}
+
+RainfallInfo findMedian(vector<RainfallInfo>& rainData){
+    int elements = (int)rainData.size();
+    return rainData[elements/2];
+}

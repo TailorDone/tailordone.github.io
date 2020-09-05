@@ -10,57 +10,76 @@
 #include <fstream>
 #include "Analysis.hpp"
 
-
 int main(int argc, const char * argv[]) {
-    ifstream ins("atlanta.txt");
-    string city;
-    ins >> city;
-    string month;
+    //Variables
+    string city, month;
     int year;
     double rainfall;
-    vector<RainfallInfo> atlantaRainfall;
-    for (int i = 0; i < 240; i++){
+    vector<RainfallInfo> atlantaRainfall, maconRainfall;
+    vector<string> months = createMonths();
+    vector<double> monthlyAverages = averages(atlantaRainfall);
+    vector<double> maconMonthlyAverages = averages(maconRainfall);
+    
+    //Input stream for Atlanta
+    ifstream ins("atlanta.txt");
+    ins >> city;for (int i = 0; i < 240; i++){
     ins >> month >> year >> rainfall;
         RainfallInfo info = {month, year, rainfall};
         atlantaRainfall.push_back(info);
     }
-    vector<string> months = createMonths();
-
+    
+    //Output analysis for Atlanta
     ofstream outs("rainfall_results.txt");
     outs << "CS 6010 Rainfall Analysis" << endl;
     outs << "Rainfall Data for " << city << endl;
     outs << endl;
-    outs << fixed << setprecision(2) << "The overall average rainfall amount is " << totalAverage(atlantaRainfall) << " inches." << endl;
+    outs << fixed << setprecision(2) << "The overall average rainfall amount is " << totalAverage(monthlyAverages) << " inches." << endl;
     for (string month : months){
-      outs << fixed << setprecision(2) << "The average rainfall amount for " << month << " is " << monthlyAverage(atlantaRainfall, month) << " inches." << endl;
+        outs << fixed << setprecision(2) << "The average rainfall amount for " << month << " is " << monthlyAverage(atlantaRainfall, month) << " inches." << endl;
     }
-    vector<double> largest = sortRainfallLargest(atlantaRainfall);
-    string largestString = vectorToString(largest);
-    outs << fixed << setprecision(2) << "The rain amounts (in inches) of the four wettest months are: " << largestString <<endl;
-    vector<double> lowest = sortRainfallSmallest(atlantaRainfall);
-    string lowestString = vectorToString(lowest);
-    outs << fixed << setprecision(2) << "The rain amounts (in inches) of the four driest months are: " << lowestString<< endl;
+    outs << fixed << setprecision(2) << "The rain amounts (in inches) of the four wettest months are: " ;
+    vector<RainfallInfo> atlantaLargest = sortRainfallLargest(atlantaRainfall);
+    for(int i = 0; i < 4; i++){
+        outs << fixed << setprecision(2) << atlantaLargest[i].rainfall << " ";
+    }
+    outs << endl;
+    outs << fixed << setprecision(2) << "The rain amounts (in inches) of the four driest months are: " ;
+    vector<RainfallInfo> atlantaSmallest = sortRainfallSmallest(atlantaRainfall);
+    for(int i = 0; i < 4; i++){
+        outs << fixed << setprecision(2) << atlantaSmallest[i].rainfall << " ";
+    }
+    outs << endl;
+    RainfallInfo atlantaMedian = findMedian(atlantaSmallest);
+    outs << fixed << setprecision(2) << "The median month is: " << atlantaMedian.month << " " << atlantaMedian.year << " " << atlantaMedian.rainfall << endl <<endl;
     
+    //Input stream for Macon
     ifstream ins2("macon.txt");
-    ins2 >> city;
-    vector<RainfallInfo> maconRainfall;
-    for (int i = 0; i < 240; i++){
+    ins2 >> city;for (int i = 0; i < 240; i++){
     ins2 >> month >> year >> rainfall;
         RainfallInfo info = {month, year, rainfall};
         maconRainfall.push_back(info);
     }
-    outs << endl;
+    
+    //Output analysis for Macon
     outs << "Rainfall Data for " << city << endl;
-    outs << fixed << setprecision(2) << "The overall average rainfall amount is " << totalAverage(maconRainfall) << " inches." << endl;
+    outs << endl;
+    outs << fixed << setprecision(2) << "The overall average rainfall amount is " << totalAverage(monthlyAverages) << " inches." << endl;
     for (string month : months){
-      outs << fixed << setprecision(2) << "The average rainfall amount for " << month << " is " << monthlyAverage(maconRainfall, month) << " inches." << endl;
+    outs << fixed << setprecision(2) << "The average rainfall amount for " << month << " is " << monthlyAverage(maconRainfall, month) << " inches." << endl;
     }
-    vector<double> largest2 = sortRainfallLargest(maconRainfall);
-    string largest2String = vectorToString(largest2);
-    outs << fixed << setprecision(2) << "The rain amounts (in inches) of the four wettest months are: " << largestString <<endl;
-    vector<double> lowest2 = sortRainfallSmallest(maconRainfall);
-    string lowest2String = vectorToString(lowest2);
-    outs << fixed << setprecision(2) << "The rain amounts (in inches) of the four driest months are: " << lowestString<< endl;
-   
+    outs << fixed << setprecision(2) << "The rain amounts (in inches) of the four wettest months are: " ;
+    vector<RainfallInfo> maconLargest = sortRainfallLargest(maconRainfall);
+    for(int i = 0; i < 4; i++){
+        outs << fixed << setprecision(2) << maconLargest[i].rainfall << " ";
+    }
+    outs << endl;
+    outs << fixed << setprecision(2) << "The rain amounts (in inches) of the four driest months are: " ;
+    vector<RainfallInfo> maconSmallest = sortRainfallSmallest(maconRainfall);
+    for(int i = 0; i < 4; i++){
+    outs << fixed << setprecision(2) << maconSmallest[i].rainfall << " ";
+    }
+    outs << endl;
+    RainfallInfo maconMedian = findMedian(maconSmallest);
+    outs << fixed << setprecision(2) << "The median month is: " << maconMedian.month << " " << maconMedian.year << " " << maconMedian.rainfall << endl;
     return 0;
 }

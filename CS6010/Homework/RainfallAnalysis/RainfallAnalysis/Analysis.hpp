@@ -22,32 +22,31 @@ struct RainfallInfo{
     double rainfall;
 };
 
-//Takes RainfallInfo and calculates the average rainfall for a given month
 double monthlyAverage(vector<RainfallInfo>& rainData, string searchMonth);
-
-//Finds the total average rainfall for a vector<RainfallInfo>
-double totalAverage(vector<RainfallInfo>& rainData);
 
 //A vector of the months of the year
 vector<string> createMonths();
 
-//Finds the smallest value in a vector of doubles
-int findSmallest(vector<double>& averages, int start);
+//Takes RainfallInfo and calculates the average rainfall for each month and stores it in a vector of doubles
+vector<double> averages(vector<RainfallInfo>& rainData);
+
+//Finds the total average rainfall for a vector<RainfallInfo>
+double totalAverage(vector<double>& rainData);
+
+
+int findSmallest(vector<RainfallInfo>& averages, int start);
 
 //Sorts data in ascending order and returns the 4 smallest values
-vector<double> sortRainfallSmallest(vector<RainfallInfo>& rainData);
+vector<RainfallInfo> sortRainfallSmallest(vector<RainfallInfo>& rainData);
 
-//Finds the largest value in a vector of doubles
-int findLargest(vector<double>& averages, int start);
+int findLargest(vector<RainfallInfo>& averages, int start);
 
-//Sorts data in descending order and returns the 4 largest values
-vector<double> sortRainfallLargest(vector<RainfallInfo>& rainData);
+vector<RainfallInfo> sortRainfallLargest(vector<RainfallInfo>& rainData);
 
-//Takes a vector and turns it into a string
-string printVector(vector<double>& rainData);
-
-//Convert a vector to a string
 string vectorToString(vector<double> values);
 
 double returnValue(vector<RainfallInfo>& rainData, int index);
+
+RainfallInfo findMedian(vector<RainfallInfo>& rainData);
+
 #endif /* Analysis_hpp */
