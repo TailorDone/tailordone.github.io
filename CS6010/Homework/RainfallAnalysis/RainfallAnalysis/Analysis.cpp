@@ -8,6 +8,12 @@
 
 #include "Analysis.hpp"
 
+
+vector<string> createMonths(){
+    vector<string> months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    return months;
+}
+
 double monthlyAverage(vector<RainfallInfo>& rainData, string searchMonth){
     double totalRain = 0;
     int monthCount = 0;
@@ -21,11 +27,6 @@ double monthlyAverage(vector<RainfallInfo>& rainData, string searchMonth){
     return average;
 }
 
-vector<string> createMonths(){
-    vector<string> months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-    return months;
-}
-
 vector<double> averages(vector<RainfallInfo>& rainData){
     vector<double> monthlyAverages;
     for (string month : createMonths()){
@@ -34,13 +35,12 @@ vector<double> averages(vector<RainfallInfo>& rainData){
     return monthlyAverages;
 }
 
-//Fix Average
 double totalAverage(vector<double>& rainData){
     double total = 0;
     for(double month : rainData){
         total += month;
     }
-    return total;
+    return total/12;
 }
 
 int findSmallest(vector<RainfallInfo>& averages, int start){
@@ -77,23 +77,6 @@ vector<RainfallInfo> sortRainfallLargest(vector<RainfallInfo>& rainData){
             swap(rainData[i], rainData[smallest]);
         }
     return rainData;
-}
-
-string vectorToString(vector<double> values){
-    string s;
-    for (int i = 0; i < values.size(); i ++){
-        if (i!=values.size()){
-            s+= to_string(values[i]) + " ";
-        }
-        else{
-            s+= to_string(values[i]);
-        }
-    }
-    return s;
-}
-
-double returnValue(vector<RainfallInfo>& rainData, int index){
-    return rainData[index].rainfall;
 }
 
 RainfallInfo findMedian(vector<RainfallInfo>& rainData){

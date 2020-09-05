@@ -22,31 +22,31 @@ struct RainfallInfo{
     double rainfall;
 };
 
-double monthlyAverage(vector<RainfallInfo>& rainData, string searchMonth);
-
 //A vector of the months of the year
 vector<string> createMonths();
 
-//Takes RainfallInfo and calculates the average rainfall for each month and stores it in a vector of doubles
+//Returns an individual months' average rainfall
+double monthlyAverage(vector<RainfallInfo>& rainData, string searchMonth);
+
+//Takes RainfallInfo and calculates the average rainfall for each month and stores the values as a vector of doubles
 vector<double> averages(vector<RainfallInfo>& rainData);
 
 //Finds the total average rainfall for a vector<RainfallInfo>
 double totalAverage(vector<double>& rainData);
 
-
+// Finds the smallest element in a vector
 int findSmallest(vector<RainfallInfo>& averages, int start);
 
-//Sorts data in ascending order and returns the 4 smallest values
+//Sorts data in ascending order
 vector<RainfallInfo> sortRainfallSmallest(vector<RainfallInfo>& rainData);
 
+//Finds the largest element in a vector
 int findLargest(vector<RainfallInfo>& averages, int start);
 
+//sorts data in descending order
 vector<RainfallInfo> sortRainfallLargest(vector<RainfallInfo>& rainData);
 
-string vectorToString(vector<double> values);
-
-double returnValue(vector<RainfallInfo>& rainData, int index);
-
+//Finds the median based on RainfallInfo.rainfall
 RainfallInfo findMedian(vector<RainfallInfo>& rainData);
 
 #endif /* Analysis_hpp */
