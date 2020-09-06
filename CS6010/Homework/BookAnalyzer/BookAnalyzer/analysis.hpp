@@ -16,39 +16,61 @@
 #include <string>
 using namespace std;
 
+
+struct SearchWordInfo{
+    int index;
+    string beforeSearchWord;
+    string searchWord;
+    string afterSearchWord;
+};
+
 //Store all the words from bookFile in a vector of strings
 vector<string> readDataFromFile(ifstream& bookFile);
 
 //Finds where to start reading Title
-int titleStartPoint(vector<string> bookWords);
+int titleStartPoint(const vector<string>& bookWords);
 
 //Find where to start reading the Author
-int authorStartPoint(vector<string> bookWords, int start);
+int authorStartPoint(const vector<string>& bookWords, int& start);
 
 //FInd where to start reading the Release Date
-int releaseStartPoint(vector<string> bookWords, int start);
+int releaseStartPoint(const vector<string>& bookWords, int& start);
 
 //Finds the words between 2 indices
-string middleWords(vector<string> bookWords, int startIndex, int endIndex);
+string middleWords(const vector<string>& bookWords, int& startIndex, int& endIndex);
 
 //Returns the title and Author
-string titleAndAuthor(vector<string> bookWords);
-
+string titleAndAuthor(const vector<string>& bookWords);
 
 //Returns whether or not the character is a vowel (including y)
-bool isVowel(char c);
+bool isVowel(char& c);
 
 //Returns whether or not the character is a consonant
-bool isConsonant(char c);
+bool isConsonant(char& c);
 
 //Counts the number of words in the book
-int numWords(vector<string> s);
+int numWords(const vector<string>& s);
 
 //Counts the number of vowels in the book
-int numVowels(vector<string> s);
+int numVowels(const vector<string>& s, int endIndex);
+
+int numConsonants(const vector<string>& s, int endIndex);
 
 //Returns the number of consonants in the book
-int numChars(vector<string> s);
+int numChars(const vector<string>& s, int endIndex);
+
+//find the number of times the search word is found in the file
+int numOfOccurences(const vector<string>& s, string searchWord);
+
+int charNumber(const vector<string>& s, int endIndex);
+
+int characterPercentage(const vector<string>& s, int endIndex);
+
+vector<SearchWordInfo> wordLocation(const vector<string> s, string searchWord);
+
+vector<string> wordLengths(const vector<string>& s);
+
+
 
 //UNUSED CODE
 //Could include if you also wanted to remove standard puncutation from the file.

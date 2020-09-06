@@ -24,9 +24,17 @@ int main(int argc, const char * argv[]) {
     string bookInfo = titleAndAuthor(bookWords);
     cout << bookInfo << endl;
     int numberOfWords = numWords(bookWords);
-    cout << numberOfWords << endl;
-    int numberOfChars = numChars(bookWords);
-    cout << numberOfChars << endl;
-    
+    cout << "Number of words: " << numberOfWords << endl;
+    int numberOfChars = numChars(bookWords, bookWords.size());
+    cout << "Number of characters: " << numberOfChars << endl;
+    vector<string> shortAndLong = wordLengths(bookWords);
+//    cout << "The shortest word is \"" << shortAndLong[0] << "\" and the longest word is \"" << shortAndLong[1] << "\"" << endl;
+    string searchWord = "weltering";
+    vector<SearchWordInfo> info = wordLocation(bookWords, searchWord);
+    cout << "The word " << searchWord << " appears " << info.size() << " times:" << endl;
+    for (SearchWordInfo location : info){
+        cout << " at " << characterPercentage(bookWords, location.index) << "%: " << "\"" << location.beforeSearchWord << " " << location.searchWord << " " << location.afterSearchWord << "\"" << endl;
+        
+    }
     return 0;
 }
