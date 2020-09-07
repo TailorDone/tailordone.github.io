@@ -10,19 +10,14 @@
 #include "wordHelpers.hpp"
 
 int main(int argc, const char * argv[]) {
-    //read bookName file from terminal
-    ifstream bookFile(argv[1]);
-    //If file is not found, error message sent and program is closed.
+    ifstream bookFile(argv[1]); //read bookName file from terminal
     if(!bookFile.is_open()){
-        cout << "File not found" << endl;
+        cout << "File not found" << endl; //If file is not found, error message sent and program is closed.
         exit(1);
     }
     string bookName = argv[1];
-    //read keyWord from terminal
-    string keyWord = (argv[2]);
-    //Takes all the words from the file and turns it into a vector of strings.
-    vector<string> bookWords = readDataFromFile(bookFile);
-    //Prints the Analysis for the given file
-    printAnalysis(bookWords, bookName, keyWord);
+    string keyWord = (argv[2]); //read keyWord from terminal
+    vector<string> bookWords = readDataFromFile(bookFile); //Takes all the words from the file and turns it into a vector of strings.
+    printAnalysis(bookWords, bookName, keyWord);//Prints the Analysis for the given file
     return 0;
 }

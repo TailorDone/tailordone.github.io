@@ -8,43 +8,24 @@
 
 #include "wordHelpers.hpp"
 
-bool isVowel(char& c){
-    return (tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u' ||tolower(c) == 'y');
-}
-
-bool isConsonant(char& c){
-    return (isVowel(c) == false && c != ' ');
-}
-
 int numWords(const vector<string>& s){
     return (int)s.size();
 }
 
-int numVowels(const vector<string>& s, int endIndex){
-   int vowelCount = 0;
-    for(int i = 0; i < endIndex; i++){
-        for (char c : s[i]){
-            if (isVowel(c) == true){
-            vowelCount++;
-            }
-        }
-    }
-    return vowelCount;
-}
-
-int numConsonants(const vector<string>& s, int endIndex){
-    int consonantCount = 0;
-    for(int i = 0; i < endIndex; i++){
-        for (char c : s[i]){
-            if (isConsonant(c) == true)
-            consonantCount++;
-        }
-    }
-    return consonantCount;
+bool isCharacter(char& c) {
+    return(c != ' ');
 }
 
 int numChars(const vector<string>& s, int endIndex){
-    return numConsonants(s, endIndex) + numVowels(s, endIndex);
+    int charCount=0;
+    for (int i = 0; i < endIndex; i++){
+        for (char c : s[i]){
+            if (isCharacter(c)){
+                charCount++;
+            }
+        }
+    }
+    return charCount;
 }
 
 int numOfOccurences(const vector<string>& s, string searchWord){
@@ -57,20 +38,7 @@ int numOfOccurences(const vector<string>& s, string searchWord){
     return occurenceCount;
 }
 
-vector<SearchWordInfo> wordLocation(const vector<string> s, string searchWord){
-    SearchWordInfo wordInfo;
-    vector<SearchWordInfo> allInfo;
-    for (int i = 0; i < s.size(); i ++){
-        if(s[i] == searchWord){
-            wordInfo.index = i;
-            wordInfo.beforeSearchWord = s[i-1];
-            wordInfo.searchWord = s[i];
-            wordInfo.afterSearchWord = s[i+1];
-            allInfo.push_back(wordInfo);
-        }
-    }
-    return allInfo;
-}
+
 
 int charNumber(const vector<string>& s, int endIndex){
     return numChars(s, endIndex);
@@ -78,7 +46,7 @@ int charNumber(const vector<string>& s, int endIndex){
 
 int characterPercentage(const vector<string>& s, int endIndex){
     int charPosition = charNumber(s, endIndex);
-    int totalChars = numChars(s, s.size());
+    int totalChars = numChars(s, (int)s.size());
     return 100 * charPosition / totalChars;
 }
 

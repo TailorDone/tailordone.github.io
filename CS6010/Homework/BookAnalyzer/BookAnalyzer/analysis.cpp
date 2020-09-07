@@ -68,6 +68,21 @@ string titleAndAuthor(const vector<string>& bookWords){
     return "Statistics for " + title + " by " + author + ":";
 }
 
+vector<SearchWordInfo> wordLocation(const vector<string> s, string searchWord){
+    SearchWordInfo wordInfo;
+    vector<SearchWordInfo> allInfo;
+    for (int i = 0; i < s.size(); i ++){
+        if (s[i] == searchWord){
+            wordInfo.index = i;
+            wordInfo.beforeSearchWord = s[i-1];
+            wordInfo.searchWord = s[i]; //if i=0 || i=s.size()-1 then a blank space will print before or after respectively due to the print out in analysis.
+            wordInfo.afterSearchWord = s[i+1];
+            allInfo.push_back(wordInfo);
+        }
+    }
+    return allInfo;
+}
+
 void printAnalysis(vector<string> bookWords, string bookName, string keyWord){
     string bookInfo = titleAndAuthor(bookWords);
     cout << bookInfo << endl;
@@ -81,7 +96,6 @@ void printAnalysis(vector<string> bookWords, string bookName, string keyWord){
     cout << "The word " << keyWord << " appears " << info.size() << " times:" << endl;
     for (SearchWordInfo location : info){
         cout << " at " << characterPercentage(bookWords, location.index) << "%: " << "\"" << location.beforeSearchWord << " " << location.searchWord << " " << location.afterSearchWord << "\"" << endl;
-        
     }
 }
 

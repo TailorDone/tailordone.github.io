@@ -38,8 +38,11 @@ int releaseStartPoint(const vector<string>& bookWords, int& start);
 //Finds the words between 2 indices
 string middleWords(const vector<string>& bookWords, int& startIndex, int& endIndex);
 
-//Returns the title and Author
+//Returns the Title and Author
 string titleAndAuthor(const vector<string>& bookWords);
+
+//Finds where a word is located and stores the index as well as the word before and after the index.
+vector<SearchWordInfo> wordLocation(const vector<string> s, string searchWord);
 
 //Prints the analysis for the book
 void printAnalysis(vector<string> bookWords, string bookName, string keyWord);
