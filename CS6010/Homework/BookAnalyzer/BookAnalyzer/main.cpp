@@ -7,6 +7,7 @@
 //
 
 #include "analysis.hpp"
+#include "wordHelpers.hpp"
 
 int main(int argc, const char * argv[]) {
     //read bookName file from terminal
@@ -19,22 +20,9 @@ int main(int argc, const char * argv[]) {
     string bookName = argv[1];
     //read keyWord from terminal
     string keyWord = (argv[2]);
+    //Takes all the words from the file and turns it into a vector of strings.
     vector<string> bookWords = readDataFromFile(bookFile);
-    //cout << "First word: " << bookWords[2] << " Last word: " << bookWords[bookWords.size()-1] << endl;
-    string bookInfo = titleAndAuthor(bookWords);
-    cout << bookInfo << endl;
-    int numberOfWords = numWords(bookWords);
-    cout << "Number of words: " << numberOfWords << endl;
-    int numberOfChars = numChars(bookWords, bookWords.size());
-    cout << "Number of characters: " << numberOfChars << endl;
-    vector<string> shortAndLong = wordLengths(bookWords);
-//    cout << "The shortest word is \"" << shortAndLong[0] << "\" and the longest word is \"" << shortAndLong[1] << "\"" << endl;
-    string searchWord = "weltering";
-    vector<SearchWordInfo> info = wordLocation(bookWords, searchWord);
-    cout << "The word " << searchWord << " appears " << info.size() << " times:" << endl;
-    for (SearchWordInfo location : info){
-        cout << " at " << characterPercentage(bookWords, location.index) << "%: " << "\"" << location.beforeSearchWord << " " << location.searchWord << " " << location.afterSearchWord << "\"" << endl;
-        
-    }
+    //Prints the Analysis for the given file
+    printAnalysis(bookWords, bookName, keyWord);
     return 0;
 }

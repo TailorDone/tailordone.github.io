@@ -7,6 +7,7 @@
 //
 
 #include "analysis.hpp"
+#include "wordHelpers.hpp"
 
 vector<string> readDataFromFile(ifstream& bookFile){
     string word;
@@ -67,106 +68,25 @@ string titleAndAuthor(const vector<string>& bookWords){
     return "Statistics for " + title + " by " + author + ":";
 }
 
-bool isVowel(char& c){
-    return (tolower(c) == 'a' || tolower(c) == 'e' || tolower(c) == 'i' || tolower(c) == 'o' || tolower(c) == 'u' ||tolower(c) == 'y');
-}
-
-bool isConsonant(char& c){
-    return (isVowel(c) == false && c != ' ');
-}
-
-int numWords(const vector<string>& s){
-    return (int)s.size();
-}
-
-int numVowels(const vector<string>& s, int endIndex){
-   int vowelCount = 0;
-    for(int i = 0; i < endIndex; i++){
-        for (char c : s[i]){
-            if (isVowel(c) == true){
-            vowelCount++;
-            }
-        }
+void printAnalysis(vector<string> bookWords, string bookName, string keyWord){
+    string bookInfo = titleAndAuthor(bookWords);
+    cout << bookInfo << endl;
+    int numberOfWords = numWords(bookWords);
+    cout << "Number of words: " << numberOfWords << endl;
+    int numberOfChars = numChars(bookWords, (int)bookWords.size());
+    cout << "Number of characters: " << numberOfChars << endl;
+    vector<string> shortAndLong = wordLengths(bookWords);
+    cout << "The shortest word is \"" << shortAndLong[0] << "\" and the longest word is \"" << shortAndLong[1] << "\"" << endl;
+    vector<SearchWordInfo> info = wordLocation(bookWords, keyWord);
+    cout << "The word " << keyWord << " appears " << info.size() << " times:" << endl;
+    for (SearchWordInfo location : info){
+        cout << " at " << characterPercentage(bookWords, location.index) << "%: " << "\"" << location.beforeSearchWord << " " << location.searchWord << " " << location.afterSearchWord << "\"" << endl;
+        
     }
-    return vowelCount;
 }
 
-int numConsonants(const vector<string>& s, int endIndex){
-    int consonantCount = 0;
-    for(int i = 0; i < endIndex; i++){
-        for (char c : s[i]){
-            if (isConsonant(c) == true)
-            consonantCount++;
-        }
-    }
-    return consonantCount;
-}
-
-int numChars(const vector<string>& s, int endIndex){
-    return numConsonants(s, endIndex) + numVowels(s, endIndex);
-}
-
-int numOfOccurences(const vector<string>& s, string searchWord){
-    int occurenceCount = 0;
-    for (string word : s){
-        if (word == searchWord){
-            occurenceCount++;
-        }
-    }
-    return occurenceCount;
-}
-
-vector<SearchWordInfo> wordLocation(const vector<string> s, string searchWord){
-    SearchWordInfo wordInfo;
-    vector<SearchWordInfo> allInfo;
-    for (int i = 0; i < s.size(); i ++){
-        if(s[i] == searchWord){
-            wordInfo.index = i;
-            wordInfo.beforeSearchWord = s[i-1];
-            wordInfo.searchWord = s[i];
-            wordInfo.afterSearchWord = s[i+1];
-            allInfo.push_back(wordInfo);
-        }
-    }
-    return allInfo;
-}
-
-int charNumber(const vector<string>& s, int endIndex){
-    return numChars(s, endIndex);
-}
-
-int characterPercentage(const vector<string>& s, int endIndex){
-    int charPosition = charNumber(s, endIndex);
-    int totalChars = numChars(s, s.size());
-    return 100 * charPosition / totalChars;
-}
-
-vector<string> wordLengths(const vector<string>& s){
-    string shortest = s[0];
-    string longest = s[1];
-    if (shortest.size() > longest.size()){
-        string temp = shortest;
-        longest = shortest;
-        temp = longest;
-    }
-    for(string word : s){
-        if(word.size() < shortest.size()){
-            shortest = word;
-        }
-        if(word.size() > longest.size()){
-            longest = word;
-        }
-    }
-    return {shortest, longest};
-}
-
-//void printOccurrence(const vector<string>& s, string& searchWord){
-//    //
-//}
 
 
 
 
-//bool isPunctuation(char c){
-//    return (c == '.' || c == '?' || c == '!' || c==',');
-//}
+
