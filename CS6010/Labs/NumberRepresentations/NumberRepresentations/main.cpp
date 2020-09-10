@@ -27,7 +27,7 @@ void printFiles(std::string fileTitle){
       while (ins >> c){
           std::cout << c; //Doesn't work with endl
       }
-    std::cout << std::endl;
+    std::cout << std::endl; //The first part compiles weird and not how I would expect, for example [ˈmaʳkʊskuːn] instead of Markus Kuhn
 }
 
 int main(int argc, const char * argv[]) {
