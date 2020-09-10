@@ -9,23 +9,31 @@
 
 #include "ConversionFunctions.hpp"
 
+void runTests(){
+    assert(intToString(-854,16) == "-356");
+    assert(stringToInt("-356",16) == -854);
+    assert(intToString(-854, 2) == "-1101010110");
+    assert(stringToInt("-1101010110", 2) == -854);
+    assert(intToString(61453, 16) == "F00D");
+    assert(stringToInt("F00D", 16) == 61453);
+    assert(intToString(235894, 29) == "9JE8");
+}
+
 int main(int argc, const char * argv[]) {
-    //Tests
-    int value = stringToInt("99",10);
-    std::cout << value << std::endl;
-    int valueNeg = stringToInt("-99",10);
-    std::cout << valueNeg << std::endl;
-    int value2 = stringToInt("1100",2);
-    std::cout << value2 << std::endl;
-    int value2Neg = stringToInt("-1100",2);
-    std::cout << value2Neg << std::endl;
-    int value3 = stringToInt("FF", 16);
-    std::cout << value3 << std::endl;
-    int value3Neg = stringToInt("-FF", 16);
-    std::cout << value3Neg << std::endl;
-    int value4 = stringToInt("278", 16);
-    std::cout << value4 << std::endl;
-    int value4Neg = stringToInt("-278", 16);
-    std::cout << value4Neg << std::endl;
+    runTests();
+    int infiniteLoop=1;//This is for repeated testing purposes
+    while(infiniteLoop==1){
+        std::string number1;
+        int number2;
+        int base1, base2;
+        std::cout << "Enter a number, followed by the base of that number " << std::endl;
+        std::cin >> number1 >> base1;
+        int value1 = stringToInt(number1, base1);
+        std::cout << "The value of your number as a decimal integer is " << value1 << std::endl;
+        std::cout << "Enter a decimal integer and the base in which you'd like to convert to " << std::endl;
+        std::cin >> number2 >> base2;
+        std::string value2 = intToString(number2, base2);
+        std::cout << "The value of " << number2 << " converted to base " << base2 << " would become " << value2 << std::endl;
+    }
     return 0;
 }
