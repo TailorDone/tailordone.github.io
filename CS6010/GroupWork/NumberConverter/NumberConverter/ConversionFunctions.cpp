@@ -23,7 +23,8 @@ int stringToInt(std::string numberAsString, int base) {
         //Changes the value to lowercase (only matters for A,B,C,D,E,F)
         c = tolower(numberAsString[i]);
         //Changes value from character to integer
-        if(c == 'a' || c == 'b' || c == 'c' || c == 'd' || c == 'e' || c == 'f'){
+        //TODO make this be able to handle the values between 'a' and 'z'
+        if(c >= 'a' && c <= 'z'){
             numericValue = c - 'a'+ 10;
         } else {
             numericValue = c - '0';

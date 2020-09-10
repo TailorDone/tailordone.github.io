@@ -17,6 +17,7 @@ void runTests(){
     assert(intToString(61453, 16) == "F00D");
     assert(stringToInt("F00D", 16) == 61453);
     assert(intToString(235894, 29) == "9JE8");
+    assert(stringToInt("9JE8", 29) == 235894);
 }
 
 int main(int argc, const char * argv[]) {
