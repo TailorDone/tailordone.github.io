@@ -44,64 +44,47 @@ int8_t regToBit(std::string& reg){
     return -1;
 }
 
-uint16_t twoRegistersAndImmediate(std::string& name, std::string& reg1, std::string& reg2, std::string& imm){
-    uint16_t nameBits, front, back, finalBytes, immFullBits;
-    int8_t immBits;
-    uint16_t reg1Bits = regToBit(reg1);
-    uint16_t reg2Bits = regToBit(reg2);
-    reg1Bits<<=10;
-    reg2Bits<<=8;
+uint8_t twoRegisters(std::string& name, std::string& reg1, std::string& reg2){
+    uint8_t nameBits, reg1Bits, reg2Bits, finalByte;
     if(name == opNames[1]){
         nameBits = 0x1;
     } else if (name ==opNames[2]){
         nameBits = 0x2;
     } else if (name == opNames[3]){
         nameBits = 0x3;
+    } else if (name == opNames[5]){
+        nameBits = 0x5;
     } else {
         exit(1);
     }
-    immBits = stringToInt(imm);
-    immFullBits= 0x000000FF & immBits;
-    nameBits<<=12;
-    front = nameBits | reg1Bits;
-    back = reg2Bits | immFullBits;
-    finalBytes = front | back;
-    std::cout << std::hex << finalBytes << std::endl;
-    return finalBytes;
+    nameBits<<=4;
+    reg1Bits = regToBit(reg1);
+    reg2Bits = regToBit(reg2);
+    reg1Bits<<=2;
+    finalByte = reg1Bits | reg2Bits;
+    finalByte = nameBits | finalByte;
+    return finalByte;
 }
 
-uint16_t threeRegisters(std::string& name, std::string& reg1, std::string& reg2, std::string& reg3){
-    uint16_t front, back, finalBytes;
-    uint16_t reg1Bits = regToBit(reg1);
-    uint16_t reg2Bits = regToBit(reg2);
-    uint16_t reg3Bits = regToBit(reg3);
-    uint16_t nameBits = 5;
-    reg1Bits<<=10;
-    reg2Bits<<=8;
+uint8_t regThree(std::string& reg3){
+    uint8_t reg3Bits = regToBit(reg3);
     reg3Bits<<=6;
-    nameBits<<=12;
-    front = nameBits | reg1Bits;
-    back = reg2Bits | reg3Bits;
-    finalBytes = front | back;
-    std::cout << std::hex << finalBytes << std::endl;
-    return finalBytes;
+    return reg3Bits;
 }
 
-uint16_t onlyImmediate(std::string& name, std::string& imm){
-    uint16_t finalBytes, immFullBits;
-    int8_t immBits;
-    uint16_t nameBits = 4;
+uint8_t onlyImmediate(std::string& imm){
+    uint8_t immBits;
     immBits = stringToInt(imm);
-    immFullBits= 0x000000FF & immBits;
-    nameBits<<=12;
-    finalBytes = nameBits | immFullBits;
-    std::cout << std::hex << finalBytes << std::endl;
-    return finalBytes;
+    return immBits;
 }
 
-uint16_t oneRegister(std::string& name, std::string& reg1){
-    uint16_t finalBytes, nameBits;
-    uint16_t reg1Bits = regToBit(reg1);
+uint8_t noImmediate(){
+    return 0;
+}
+
+uint8_t nameAndReg1(std::string& name, std::string& reg1){
+    uint8_t finalByte, nameBits;
+    uint8_t reg1Bits = regToBit(reg1);
      if(name == opNames[6]){
            nameBits = 0x6;
        } else if (name ==opNames[7]){
@@ -111,9 +94,15 @@ uint16_t oneRegister(std::string& name, std::string& reg1){
        } else {
            exit(1);
        }
-    reg1Bits<<=10;
-    nameBits<<=12;
-    finalBytes = nameBits | reg1Bits;
-    std::cout << std::hex << finalBytes << std::endl;
-    return finalBytes;
+    reg1Bits<<=2;
+    nameBits<<=4;
+    finalByte = nameBits | reg1Bits;
+    return finalByte;
+}
+
+uint8_t nameOnly(std::string& name){
+    uint8_t nameBits;
+    nameBits = 4;
+    nameBits <<=4;
+    return nameBits;
 }

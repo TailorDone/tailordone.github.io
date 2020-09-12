@@ -15,7 +15,7 @@ int main(int argc, const char * argv[]) {
            exit(1);
        }
     std::string line;
-    std::ofstream outs("outputFile.txt");
+    std::ofstream outs("outputFile.bin");
     while(std::getline(file,line)){
     std::istringstream splitter(line);
         std::string name, reg1, reg2, reg3, imm;
@@ -25,22 +25,22 @@ int main(int argc, const char * argv[]) {
             splitter >> reg1;
             splitter >> reg2;
             splitter >> imm;
-            std::cout << reg1 << reg2 << imm << std::endl;
-            outs << std::hex << twoRegistersAndImmediate(name, reg1, reg2, imm) << std::endl;
+            outs.put(twoRegisters(name, reg1, reg2));
+            outs.put(onlyImmediate(imm));
         } else if(name == opNames[6] || name == opNames[7] || name == opNames[8]){
             splitter >> reg1;
-            std::cout << reg1 << std::endl;
-            outs << std::hex << oneRegister(name, reg1) << std::endl;
+            outs.put(nameAndReg1(name, reg1));
+            outs.put(noImmediate());
         } else if(name == opNames[4]){
             splitter >> imm;
-            std::cout << imm << std::endl;
-            outs << std::hex << onlyImmediate(name, imm) << std::endl;
+            outs.put(nameOnly(name));
+            outs.put(onlyImmediate(imm));
         } else if(name == opNames[5]){
             splitter >> reg1;
             splitter >> reg2;
             splitter >> reg3;
-            std::cout << reg1 << reg2 << reg3 << std::endl;
-            outs << std::hex << threeRegisters(name, reg1,  reg2, reg3) << std::endl;
+            outs.put(twoRegisters(name, reg1, reg2));
+            outs.put(regThree(reg3));
         } else {
             std::cout << "there has been a terrible mistake" << std::endl;
         }
