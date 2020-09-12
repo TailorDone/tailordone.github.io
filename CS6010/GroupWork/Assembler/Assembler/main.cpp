@@ -9,13 +9,13 @@
 #include "assembler.hpp"
 
 int main(int argc, const char * argv[]) {
-     std::ifstream file(argv[1]);
+    std::ifstream file(argv[1]);
        if(!file.is_open()){
-           std::cout << "File not found" << std::endl;//If file is not found, error message sent and program is closed.
+           std::cout << "File not found" << std::endl;
            exit(1);
        }
     std::string line;
-    std::ofstream outs("outputFile.bin");
+    std::ofstream outs(argv[2]);
     while(std::getline(file,line)){
     std::istringstream splitter(line);
         std::string name, reg1, reg2, reg3, imm;
@@ -27,7 +27,7 @@ int main(int argc, const char * argv[]) {
             splitter >> imm;
             outs.put(twoRegisters(name, reg1, reg2));
             outs.put(onlyImmediate(imm));
-        } else if(name == opNames[6] || name == opNames[7] || name == opNames[8]){
+        } else if(name == opNames[7] || name == opNames[8]){
             splitter >> reg1;
             outs.put(nameAndReg1(name, reg1));
             outs.put(noImmediate());
@@ -35,14 +35,15 @@ int main(int argc, const char * argv[]) {
             splitter >> imm;
             outs.put(nameOnly(name));
             outs.put(onlyImmediate(imm));
-        } else if(name == opNames[5]){
+        } else if(name == opNames[5] || name == opNames[6]){
             splitter >> reg1;
             splitter >> reg2;
             splitter >> reg3;
             outs.put(twoRegisters(name, reg1, reg2));
             outs.put(regThree(reg3));
         } else {
-            std::cout << "there has been a terrible mistake" << std::endl;
+            std::cout << "Name not found." << std::endl;
+            exit(1);
         }
     }
      return 0;
