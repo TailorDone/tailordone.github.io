@@ -38,7 +38,6 @@ uint8_t nameToInt(std::string& name){
 int8_t regToByte(std::string& reg){
     for(char c : reg){
         if (c <= '3' && c >= '0'){
-            std::cout << "I'm returning " << reg << " as " << c-'0' << std::endl;
             return c - '0';
         }
     }

@@ -20,7 +20,6 @@ int main(int argc, const char * argv[]) {
     std::istringstream splitter(line);
         std::string name, reg1, reg2, reg3, imm;
         splitter >> name;
-    std::cout << name << std::endl;
         if (name == opNames[1] || name == opNames[2] || name == opNames[3]){
             splitter >> reg1;
             splitter >> reg2;
