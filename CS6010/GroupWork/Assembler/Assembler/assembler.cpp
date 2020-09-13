@@ -8,7 +8,7 @@
 
 #include "assembler.hpp"
 
-uint8_t stringToInt(std::string numberAsString) {
+uint8_t stringToInt(std::string& numberAsString) {
     int numericValue, total = 0, sign = 1, startIndex = 0;
     char c;
     //Determines if the number is negative

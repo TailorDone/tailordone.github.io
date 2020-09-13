@@ -20,7 +20,7 @@
 #include "Instruction.h"
 
 //Takes a string and convert it to an int
-uint8_t stringToInt(std::string numberAsString);
+uint8_t stringToInt(std::string& numberAsString);
 //Takes an opCode name and converts it to an int
 uint8_t nameToInt(std::string& name);
 //Converts a reg value to a Byte
