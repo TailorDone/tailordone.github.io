@@ -10,13 +10,11 @@
 #include "Vector.hpp"
 
 void runTests(){
-    MyVector testVector = MyVector(10);
-    assert(testVector.getSize()==0); //Test that size starts at 0
-    testVector.popBack();
-    assert(testVector.getSize()==0); //Check that if the size is 0 that size doesn't go into the negatives
-    for (int i = 0; i < 10; i ++){
-        testVector.set(i, i);
-    }
+    MyVector testVector2 = MyVector(10);
+    assert(testVector2.getSize()==0); //Test that size starts at 0
+    testVector2.popBack();
+    assert(testVector2.getSize()==0); //Check that if the size is 0 that size doesn't go into the negatives
+    MyVector testVector = MyVector(10,10);
     assert(testVector.getCapacity()==10); //Test that capacity is 10 after 10 values have been filled
     assert(testVector.getSize() == 10); //Test that size is 10 after 10 values have been filled
     assert(testVector.get(3) == 3); //Test that the value at index 3 is 3

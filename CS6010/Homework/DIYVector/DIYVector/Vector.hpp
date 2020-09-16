@@ -28,6 +28,7 @@ class MyVector{
     int size;
 public:
     MyVector(int intialCapacity); //Constructor
+    MyVector(int initialCapacity, int desiredSize); //Constructor that fills in values up to desired size
     void freeVector();
     int getSize();
     int getCapacity();

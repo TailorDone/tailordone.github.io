@@ -8,27 +8,21 @@
 
 #include "Vector.hpp"
 
-//class MyVector{
-//    int* beginning;
-//    int capacity;
-//    int size;
-//public:
-//    MyVector(int intialCapacity); //Constructor
-//    void freeVector(MyVector& vector);
-//    int getSize();
-//    int getCapacity();
-//    int get(MyVector& myVec, int index);
-//    void set(MyVector& myVec, int index, int newValue);
-//    void pushBack(MyVector& myVec, int value);
-//    void popBack(MyVector& myVec);
-//    void growVector(MyVector& myVec);
-//};
-
 MyVector::MyVector(int initialCapacity){
     assert(initialCapacity > 0);
     capacity = initialCapacity;
     size = 0;
     beginning = new int[initialCapacity];
+}
+
+MyVector::MyVector(int initialCapacity, int desiredSize){
+    assert(initialCapacity >0);
+    capacity = initialCapacity;
+    size = desiredSize;
+    beginning = new int[initialCapacity];
+    for (int i = 0; i < size; i ++){
+        set(i,i);
+    }
 }
 
 int MyVector::getSize(){
@@ -64,7 +58,7 @@ int MyVector::get(int index){
 }
 
 void MyVector::set(int index, int newValue){
-    assert(!(index >= 0 && index > size));
+    assert(!(index >=0 && index > size));
     *(beginning + index) = newValue;
 }
 
