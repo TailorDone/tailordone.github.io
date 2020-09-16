@@ -8,51 +8,75 @@
 
 #include "Vector.hpp"
 
-MyVector makeVector(int initialCapacity){
+//class MyVector{
+//    int* beginning;
+//    int capacity;
+//    int size;
+//public:
+//    MyVector(int intialCapacity); //Constructor
+//    void freeVector(MyVector& vector);
+//    int getSize();
+//    int getCapacity();
+//    int get(MyVector& myVec, int index);
+//    void set(MyVector& myVec, int index, int newValue);
+//    void pushBack(MyVector& myVec, int value);
+//    void popBack(MyVector& myVec);
+//    void growVector(MyVector& myVec);
+//};
+
+MyVector::MyVector(int initialCapacity){
     assert(initialCapacity > 0);
-    MyVector createdVector;
-    createdVector.capacity = initialCapacity;
-    createdVector.size = 0;
-    createdVector.beginning = new int[initialCapacity];
-    return createdVector;
+    capacity = initialCapacity;
+    size = 0;
+    beginning = new int[initialCapacity];
 }
 
-void freeVector(MyVector& vector){
-    delete []vector.beginning;
-    vector.beginning = nullptr;
+int MyVector::getSize(){
+    return size;
 }
 
-void pushBack(MyVector& myVec, int value){
-    if (myVec.size == myVec.capacity){
-         growVector(myVec);
+int MyVector::getCapacity(){
+    return capacity;
+}
+
+void MyVector::freeVector(){
+    delete []beginning;
+    beginning = nullptr;
+}
+
+void MyVector::pushBack(int value){
+    if (size == capacity){
+         growVector();
     }
-    myVec.beginning[myVec.size] = value;
-    myVec.size++;
+    beginning[size] = value;
+    size++;
 }
 
-void popBack(MyVector& myVec){
-    if (myVec.size>0){
-    myVec.size--;
+void MyVector::popBack(){
+    if (size>0){
+    size--;
     }
 }
 
-int get(MyVector& myVec, int index){
-    assert(index>=0 && index < myVec.size);
-    return *(myVec.beginning + index);
+int MyVector::get(int index){
+    assert(index>=0 && index < size);
+    return *(beginning + index);
 }
 
-void set(MyVector& myVec, int index, int newValue){
-    assert(!(index >= 0 && index > myVec.size));
-    *(myVec.beginning + index) = newValue;
+void MyVector::set(int index, int newValue){
+    assert(!(index >= 0 && index > size));
+    *(beginning + index) = newValue;
 }
 
-void growVector(MyVector& myVec){
-    MyVector biggerVec = makeVector(myVec.capacity*2);
-    for (int i = 0; i < myVec.size; i++){
-        set(biggerVec, i, get(myVec,i));
+void MyVector::growVector(){
+    MyVector biggerVec(capacity*2);
+    for (int i = 0; i < size; i++){
+        biggerVec.set(i, get(i));
         biggerVec.size++;
     }
-    freeVector(myVec);
-    myVec = biggerVec;
+    freeVector();
+    size = biggerVec.size;
+    capacity = biggerVec.capacity;
+    beginning = biggerVec.beginning;
     biggerVec.beginning = nullptr;
 }

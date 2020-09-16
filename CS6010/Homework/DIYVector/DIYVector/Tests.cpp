@@ -10,32 +10,31 @@
 #include "Vector.hpp"
 
 void runTests(){
-    MyVector testVector = makeVector(10);
-    assert(testVector.size==0); //Test that size starts at 0
-    popBack(testVector);
-    assert(testVector.size==0); //Check that if the size is 0 that size doesn't go into the negatives
+    MyVector testVector = MyVector(10);
+    assert(testVector.getSize()==0); //Test that size starts at 0
+    testVector.popBack();
+    assert(testVector.getSize()==0); //Check that if the size is 0 that size doesn't go into the negatives
     for (int i = 0; i < 10; i ++){
-        testVector.beginning[i]=i;
-        testVector.size++;
+        testVector.set(i, i);
     }
-    assert(testVector.capacity==10); //Test that capacity is 10 after 10 values have been filled
-    assert(testVector.size == 10); //Test that size is 10 after 10 values have been filled
-    assert(get(testVector,3) == 3); //Test that the value at index 3 is 3
-    set(testVector, 5, 12345);
-    assert(get(testVector,5)==12345);//Test that the value at 5 is now 12345
-    set(testVector, 9, 999); //Can set the last element in a vector
-    assert(get(testVector,9) == 999); //Can get the last element in a vector
-    set(testVector, 0, 01010); //Can set the fist element in a vector
-    assert(get(testVector,0) == 01010); //Can get the first element in a vector
-    pushBack(testVector,10);
-    assert(testVector.capacity ==20); //Test that adding an element when at capacity will double capacity
-    assert(testVector.size ==11); //Test that the size increases when the capacity changes
-    popBack(testVector);
-    assert(testVector.capacity ==20); //Test that popback does not change the capacity back down
-    assert(testVector.size ==10); //Test that popback decreases the size by one
-    growVector(testVector);
-    assert(testVector.capacity==40); //Tests that grow vector changes the capacity
-    assert(testVector.size == 10); //But that grow vector does not change the size
-    freeVector(testVector);
-    assert(testVector.beginning == nullptr); //Test that free vector has a nullpointer
+    assert(testVector.getCapacity()==10); //Test that capacity is 10 after 10 values have been filled
+    assert(testVector.getSize() == 10); //Test that size is 10 after 10 values have been filled
+    assert(testVector.get(3) == 3); //Test that the value at index 3 is 3
+    testVector.set(5, 12345);
+    assert(testVector.get(5)==12345);//Test that the value at 5 is now 12345
+    testVector.set(9, 999); //Can set the last element in a vector
+    assert(testVector.get(9) == 999); //Can get the last element in a vector
+    testVector.set(0, 01010); //Can set the fist element in a vector
+    assert(testVector.get(0) == 01010); //Can get the first element in a vector
+    testVector.pushBack(10);
+    assert(testVector.getCapacity()==20); //Test that adding an element when at capacity will double capacity
+    assert(testVector.getSize() ==11); //Test that the size increases when the capacity changes
+    testVector.popBack();
+    assert(testVector.getCapacity() ==20); //Test that popback does not change the capacity back down
+    assert(testVector.getSize() ==10); //Test that popback decreases the size by one
+    testVector.growVector();
+    assert(testVector.getCapacity()==40); //Tests that grow vector changes the capacity
+    assert(testVector.getSize() == 10); //But that grow vector does not change the size
+    testVector.freeVector();
+    //assert(testVector.beginning == nullptr); Unsure how to test freeVector now
 }

@@ -13,23 +13,30 @@
 #include <iostream>
 #include "Tests.hpp"
 
-struct MyVector{
+//In this lab we'll modify the Vector struct/functions you wrote yesterday to make it more like std::vector. Re-organize your code by doing the following:
+//
+//change your vector struct into a vector class (this literally just requires replacing struct with class
+//make all your data members private
+//convert makeVector into a constructor
+//convert get, set, push_back, pop_back, growVector, and freeVector into methods
+//add methods getSize() and getCapacity() to return the size and capacity of the vector (since your member variables are now private, you need these methods for users to be able to see those values)
+//Modify your testing code to work with your reorganized vector code
+
+class MyVector{
     int* beginning;
     int capacity;
     int size;
+public:
+    MyVector(int intialCapacity); //Constructor
+    void freeVector();
+    int getSize();
+    int getCapacity();
+    int get(int index);
+    void set(int index, int newValue);
+    void pushBack(int value);
+    void popBack();
+    void growVector();
 };
 
-MyVector makeVector(int initialCapacity);
 
-void freeVector(MyVector& vector);
-
-void pushBack(MyVector& myVec, int value);
-
-void popBack(MyVector& myVec);
-
-int get(MyVector& myVec, int index);
-
-void set(MyVector& myVec, int index, int newValue);
-
-void growVector(MyVector& myVec);
 #endif /* Vector_hpp */
