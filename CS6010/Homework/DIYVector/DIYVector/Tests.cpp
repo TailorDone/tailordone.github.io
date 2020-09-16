@@ -22,7 +22,11 @@ void runTests(){
     assert(testVector.size == 10); //Test that size is 10 after 10 values have been filled
     assert(get(testVector,3) == 3); //Test that the value at index 3 is 3
     set(testVector, 5, 12345);
-    assert(get(testVector,5)==12345); //Test that the value at 5 is now 12345
+    assert(get(testVector,5)==12345);//Test that the value at 5 is now 12345
+    set(testVector, 9, 999); //Can set the last element in a vector
+    assert(get(testVector,9) == 999); //Can get the last element in a vector
+    set(testVector, 0, 01010); //Can set the fist element in a vector
+    assert(get(testVector,0) == 01010); //Can get the first element in a vector
     pushBack(testVector,10);
     assert(testVector.capacity ==20); //Test that adding an element when at capacity will double capacity
     assert(testVector.size ==11); //Test that the size increases when the capacity changes
@@ -34,5 +38,4 @@ void runTests(){
     assert(testVector.size == 10); //But that grow vector does not change the size
     freeVector(testVector);
     assert(testVector.beginning == nullptr); //Test that free vector has a nullpointer
-    //assert(index >= 0 && index < size); Want to test that you can't get an index that doesn't exist and you can't set an index that doesn't exist. Currently throws errors in the code.
 }

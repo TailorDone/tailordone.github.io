@@ -9,6 +9,7 @@
 #include "Vector.hpp"
 
 MyVector makeVector(int initialCapacity){
+    assert(initialCapacity > 0);
     MyVector createdVector;
     createdVector.capacity = initialCapacity;
     createdVector.size = 0;
@@ -36,20 +37,13 @@ void popBack(MyVector& myVec){
 }
 
 int get(MyVector& myVec, int index){
-    if(!(index>=0 && index < myVec.size)){
-    std::cout << "Error: Get index out of bounds." << std::endl;
-    exit(1);
-    }
+    assert(index>=0 && index < myVec.size);
     return *(myVec.beginning + index);
 }
 
 void set(MyVector& myVec, int index, int newValue){
-    if (index < 0 || index > myVec.size){
-        std::cout << "Error: Set index out of bounds." << std::endl;
-        exit(1);
-    } else {
+    assert(!(index >= 0 && index > myVec.size));
     *(myVec.beginning + index) = newValue;
-    }
 }
 
 void growVector(MyVector& myVec){
