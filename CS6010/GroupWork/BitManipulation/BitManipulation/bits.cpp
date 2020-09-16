@@ -124,7 +124,7 @@ unsigned char GetByte(uint32_t input, int b)
  *   SetByte(0, 5, 0) -> returns 5
  *   SetByte(0, 5, 1) -> returns 0x500 (1280 as unsigned int)
  *   SetByte(0xffffffff, 0, 2) -> returns 0xff00ffff (4278255615 as unsigned int)
- *   SetByte((unsigned int)-1, 0, 2) -> returns 0xff00ffff (4278255615 as unsigned int)
+ *   SetByte((unsigned int)-1, 0, 2) -> returns 0xff00ffff (4278255615 as unsigned int) FF0000000 0000FFFF FF00FFFF
  *   SetByte(0xabcd, 7, 1) -> returns 0x7cd (1997 as unsigned int)
  */
 uint32_t SetByte(uint32_t input, uint8_t value, int b){
@@ -136,7 +136,7 @@ uint32_t SetByte(uint32_t input, uint8_t value, int b){
     leftSide = leftSide << 8*(b);
     rightSide = rightSide & 0x00FFFFFF;
     rightSide = rightSide >> 8*(3-b);
-    endResult = leftSide |rightSide;
+    endResult = leftSide | rightSide;
     uint32_t insertByte = valueHolder << 8*(b);
     endResult = endResult | insertByte;
     return endResult;
@@ -177,7 +177,7 @@ int Increment(uint32_t x){
  *   Negate(5) -> returns -5
  *   Negate(-1) -> returns 1
  */
-int Negate(int input){
+int Negate(int input){ 
     input = ~input;
     input = Increment(input);
     return input;
