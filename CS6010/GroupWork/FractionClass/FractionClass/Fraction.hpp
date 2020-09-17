@@ -22,10 +22,10 @@ class Fraction{
 public:
     Fraction(); //Constructor for 0/1
     Fraction (long n, long d); //Constructor for n/d
-    Fraction plus(Fraction rhs); //Returns a new fraction taht is the result of the right hand side(rhs) fraction added to this fraction
-    Fraction minus(Fraction rhs);//Returns a new fraction taht is the result of the right hand side(rhs) fraction subtracted from this fraction
-    Fraction times(Fraction rhs);//Returns a new fraction taht is the result of the right hand side(rhs) fraction multiplied to this fraction
-    Fraction dividedBy(Fraction rhs);//Returns a new fraction taht is the result of the right hand side(rhs) fraction divided by this fraction
+    Fraction plus(Fraction rhs); //Returns a new fraction that is the result of the right hand side(rhs) fraction added to this fraction
+    Fraction minus(Fraction rhs);//Returns a new fraction that is the result of the right hand side(rhs) fraction subtracted from this fraction
+    Fraction times(Fraction rhs);//Returns a new fraction that is the result of the right hand side(rhs) fraction multiplied to this fraction
+    Fraction dividedBy(Fraction rhs);//Returns a new fraction that is the result of the right hand side(rhs) fraction divided by this fraction
     Fraction reciprocal(); //Returns a new fraction that is the reciprocal of this fraction
     std::string toString(); //Returns a string representation of this fraction
     double toDouble(); //Returns a double approximation of this fraction

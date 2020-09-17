@@ -80,4 +80,10 @@ void TestToDouble();
  */
 double ComputePi();
 
+void TestDivision();
+
+void TestMultiplication();
+
+void TestSubtraction();
+
 #endif /* FractionTest_hpp */

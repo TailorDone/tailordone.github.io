@@ -16,5 +16,8 @@ int main(int argc, const char * argv[]) {
     TestToDouble();
     TestPlus();
     Test("Approximating pi", 3.141592, ComputePi());
+    TestDivision();
+    TestMultiplication();
+    TestSubtraction();
     return 0;
 }

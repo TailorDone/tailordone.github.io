@@ -16,6 +16,9 @@ void Fraction::reduce(){
 
 long Fraction::GCD(){
     long gcd = abs(numerator);
+    if(numerator==0){ //If numerator is 0, return one, otherwise the denominator is returned as the gcd
+        return 1;
+    }
     long remainder = abs(denominator);
     while(remainder != 0) {
       long temp = remainder;
@@ -31,12 +34,10 @@ Fraction::Fraction(){
 }
 
 Fraction::Fraction (long n, long d){
+    assert(d!=0);
     numerator = n;
     denominator = d;
-    if (numerator < 0 && denominator < 0){ //Changes both values to positive
-        numerator*=-1;
-        denominator*=-1;
-    } else if (denominator < 0) { // Moves the negative to the numerator
+    if (denominator < 0){ //Changes both values to positive, or move the negative to the numerator
         numerator*=-1;
         denominator*=-1;
     }
@@ -44,8 +45,6 @@ Fraction::Fraction (long n, long d){
 }
 
 Fraction Fraction::plus(Fraction rhs){
-    reduce();
-    rhs.reduce();
     Fraction result;
     long tempDenom = denominator;
     numerator *= rhs.denominator;
@@ -85,13 +84,11 @@ Fraction Fraction::dividedBy(Fraction rhs){
     result.numerator = numerator * rhsRecip.numerator;
     result.denominator = denominator * rhsRecip.denominator;
     result.reduce();
-    return rhs;
+    return result;
 }
 
 Fraction Fraction::reciprocal(){
-    long newDenom = numerator;
-    long newNume = denominator;
-    Fraction reciprocal = Fraction(newNume,newDenom);
+    Fraction reciprocal = Fraction(denominator,numerator);
     return reciprocal;
 }
 

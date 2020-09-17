@@ -101,7 +101,7 @@ void TestNegative(){
     
     Fraction f6(0, -13);
     result = f6.toString();
-    Test("Zero Numerator, Negative Denominator", "0/13", result); //TODO FIX THIS
+    Test("Zero Numerator, Negative Denominator", "0/13", result);
 }
 
 
@@ -183,6 +183,12 @@ void TestPlus(){
     Fraction f9 = f7.plus(f8);
     result = f9.toString();
     Test("Addition of negatives", "-29/63", result);
+    
+    Fraction f10(1, 2);
+       Fraction f11(-1, 2);
+       Fraction f12 = f10.plus(f11);
+       result = f12.toString();
+       Test("Addition of opposites", "0/4", result);
 }
 
 void TestToDouble()
@@ -227,3 +233,74 @@ double ComputePi()
   return sum.toDouble();
 }
 
+void TestDivision(){
+    std::string result = "";
+    Fraction f1(4, 6);
+    Fraction f2(3, 4);
+
+    Fraction f3 = f1.dividedBy(f2);
+    result = f3.toString();
+    Test("Division of non-reduced", "8/9", result);
+    
+    Fraction f4(-5, 10);
+    Fraction f5(22, -6);
+    Fraction f6 = f4.dividedBy(f5);
+    result = f6.toString();
+    Test("Division  of non-reduced negatives", "3/22", result);
+       
+    Fraction f7(3, 7);
+    Fraction f8(8, -9);
+    Fraction f9 = f7.dividedBy(f8);
+    result = f9.toString();
+    Test("Division  of negatives", "-27/56", result);
+}
+
+void TestMultiplication(){
+    std::string result = "";
+    Fraction f1(4, 6);
+    Fraction f2(3, 4);
+
+    Fraction f3 = f1.times(f2);
+    result = f3.toString();
+    Test("Multiplication of non-reduced", "1/2", result);
+    
+    Fraction f4(-5, 10);
+    Fraction f5(22, -6);
+    Fraction f6 = f4.times(f5);
+    result = f6.toString();
+    Test("Multiplication of non-reduced negatives", "11/6", result);
+       
+    Fraction f7(3, 7);
+    Fraction f8(8, -9);
+    Fraction f9 = f7.times(f8);
+    result = f9.toString();
+    Test("Multiplication of negatives", "-8/21", result);
+}
+
+void TestSubtraction(){
+    std::string result = "";
+    Fraction f1(4, 6);
+    Fraction f2(3, 4);
+
+    Fraction f3 = f1.minus(f2);
+    result = f3.toString();
+    Test("Minus of non-reduced", "-1/12", result);
+    
+    Fraction f4(-5, 10);
+    Fraction f5(22, -6);
+    Fraction f6 = f4.minus(f5);
+    result = f6.toString();
+    Test("Minus of non-reduced negatives", "19/6", result);
+       
+    Fraction f7(3, 7);
+    Fraction f8(8, -9);
+    Fraction f9 = f7.minus(f8);
+    result = f9.toString();
+    Test("Minus of negatives", "83/63", result);
+    
+    Fraction f10(1, 2);
+    Fraction f11(1, 2);
+    Fraction f12 = f10.minus(f11);
+    result = f12.toString();
+    Test("Minus of opposites", "0/4", result);
+}
