@@ -2,7 +2,7 @@
 //  Fraction.hpp
 //  FractionClass
 //
-//  Created by Taylor Dunn on 9/16/20.
+//  Created by Taylor Dunn & Tyler Speegle on 9/16/20.
 //  Copyright © 2020 Taylor Dunn. All rights reserved.
 //
 

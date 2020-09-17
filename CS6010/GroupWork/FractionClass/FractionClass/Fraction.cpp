@@ -2,7 +2,7 @@
 //  Fraction.cpp
 //  FractionClass
 //
-//  Created by Taylor Dunn on 9/16/20.
+//  Created by Taylor Dunn & Tyler Speegle on 9/16/20.
 //  Copyright © 2020 Taylor Dunn. All rights reserved.
 //
 
@@ -45,45 +45,34 @@ Fraction::Fraction (long n, long d){
 }
 
 Fraction Fraction::plus(Fraction rhs){
-    Fraction result;
-    long tempDenom = denominator;
-    numerator *= rhs.denominator;
-    denominator *= rhs.denominator;
-    rhs.denominator *=tempDenom;
-    rhs.numerator *= tempDenom;
-    result.numerator = numerator + rhs.numerator;
-    result.denominator = denominator;
-    result.reduce();
+    long n= rhs.numerator*denominator; //Multiply right hand side by left hand denominator
+    numerator *= rhs.denominator; //Multiply left hand numerator by right hand denominator
+    denominator *= rhs.denominator; //Multiply left hand denominator by right hand denominator
+    Fraction result = Fraction(numerator+n,denominator); //Add the numerators, denominator stays as new left hand denominator
     return result;
 }
 
 Fraction Fraction::minus(Fraction rhs){
-    Fraction result;
-    long tempDenom = denominator;
-    numerator *= rhs.denominator;
-    denominator *= rhs.denominator;
-    rhs.denominator *=tempDenom;
-    rhs.numerator *= tempDenom;
-    result.numerator = numerator - rhs.numerator;
-    result.denominator = denominator;
-    result.reduce();
+    long n= rhs.numerator*denominator;//Multiply right hand side by left hand denominator
+    numerator *= rhs.denominator;//Multiply left hand numerator by right hand denominator
+    denominator *= rhs.denominator;//Multiply left hand denominator by right hand denominator
+    Fraction result = Fraction(numerator-n,denominator);//Subtract the numerators, denominator stays as new left hand denominator
     return result;
 }
 
 Fraction Fraction::times(Fraction rhs){
-    Fraction result;
-    result.numerator = numerator * rhs.numerator;
-    result.denominator = denominator * rhs.denominator;
-    result.reduce();
+    long n,d;
+    n = numerator * rhs.numerator;
+    d = denominator * rhs.denominator;
+    Fraction result = Fraction(n,d);
     return result;
 }
 
 Fraction Fraction::dividedBy(Fraction rhs){
-    Fraction result;
-    Fraction rhsRecip = rhs.reciprocal();
-    result.numerator = numerator * rhsRecip.numerator;
-    result.denominator = denominator * rhsRecip.denominator;
-    result.reduce();
+    long n,d;
+    n = numerator * rhs.reciprocal().numerator;
+    d = denominator * rhs.reciprocal().denominator;
+    Fraction result = Fraction(n,d);
     return result;
 }
 

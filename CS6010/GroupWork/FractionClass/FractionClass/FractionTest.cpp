@@ -2,7 +2,7 @@
 //  FractionTest.cpp
 //  FractionClass
 //
-//  Created by Taylor Dunn on 9/16/20.
+//  Created by Taylor Dunn & Tyler Speegle on 9/16/20.
 //  Copyright © 2020 Taylor Dunn. All rights reserved.
 //
 
@@ -151,12 +151,12 @@ void TestReciprocal(){
     Fraction f4(12, -2);
     f4 = f4.reciprocal();
     result = f4.toString();
-    Test("Reciprocal of non-reduced", "-1/6", result);
+    Test("Reciprocal of non-reduced with negative denominator", "-1/6", result);
     
     Fraction f5(-20, -30);
     f5 = f5.reciprocal();
     result = f5.toString();
-    Test("Reciprocal of non-reduced", "3/2", result);
+    Test("Reciprocal of non-reduced, both negative", "3/2", result);
 }
 
 /*
@@ -182,7 +182,7 @@ void TestPlus(){
     Fraction f8(8, -9);
     Fraction f9 = f7.plus(f8);
     result = f9.toString();
-    Test("Addition of negatives", "-29/63", result);
+    Test("Addition of negative", "-29/63", result);
     
     Fraction f10(1, 2);
        Fraction f11(-1, 2);
@@ -252,7 +252,7 @@ void TestDivision(){
     Fraction f8(8, -9);
     Fraction f9 = f7.dividedBy(f8);
     result = f9.toString();
-    Test("Division  of negatives", "-27/56", result);
+    Test("Division of negative", "-27/56", result);
 }
 
 void TestMultiplication(){
@@ -274,7 +274,7 @@ void TestMultiplication(){
     Fraction f8(8, -9);
     Fraction f9 = f7.times(f8);
     result = f9.toString();
-    Test("Multiplication of negatives", "-8/21", result);
+    Test("Multiplication of negative", "-8/21", result);
 }
 
 void TestSubtraction(){
@@ -296,7 +296,7 @@ void TestSubtraction(){
     Fraction f8(8, -9);
     Fraction f9 = f7.minus(f8);
     result = f9.toString();
-    Test("Minus of negatives", "83/63", result);
+    Test("Minus of negative", "83/63", result);
     
     Fraction f10(1, 2);
     Fraction f11(1, 2);
