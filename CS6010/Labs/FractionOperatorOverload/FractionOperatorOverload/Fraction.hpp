@@ -39,7 +39,8 @@ Fraction operator*(Fraction lhs, Fraction rhs);
 Fraction operator/(Fraction lhs, Fraction rhs);
 bool operator!=(Fraction& lhs, Fraction& rhs);
 bool operator>(Fraction& lhs, Fraction& rhs);
-bool operator<=(Fraction& lhs, Fraction& rhs);
 bool operator>=(Fraction& lhs, Fraction& rhs);
+bool operator<=(Fraction& lhs, Fraction& rhs);
+
 
 #endif /* Fraction_hpp */

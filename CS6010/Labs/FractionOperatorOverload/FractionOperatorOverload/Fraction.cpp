@@ -138,11 +138,13 @@ bool operator>(Fraction& lhs, Fraction& rhs){
     return(rhs < lhs);
 }
 
+bool operator>=(Fraction& lhs, Fraction& rhs){
+    return !(lhs<rhs);
+}
+
 bool operator<=(Fraction& lhs, Fraction& rhs){
     return!(lhs>rhs);
 }
 
-bool operator>=(Fraction& lhs, Fraction& rhs){
-    return !(lhs<rhs);
-}
+
 

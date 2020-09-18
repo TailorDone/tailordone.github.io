@@ -387,6 +387,7 @@ void TestGreaterThanOrEqualTo(){
     Test("Is 1/2 >= 1/2", true, result);
 }
 
+
 void TestOpposite(){
     std::string result = "";
     Fraction f1(3, 7);
