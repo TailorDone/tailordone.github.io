@@ -386,3 +386,23 @@ void TestGreaterThanOrEqualTo(){
     result = f1 >= f1;
     Test("Is 1/2 >= 1/2", true, result);
 }
+
+void TestOpposite(){
+    std::string result = "";
+    Fraction f1(3, 7);
+    Fraction f2 = -f1;
+    result = f2.toString();
+    Test("Opposite Operator", "-3/7", result);
+    Fraction f3(-3, -7);
+    Fraction f4 = -f3;
+    result = f4.toString();
+    Test("Opposite Operator", "-3/7", result);
+    Fraction f5(3, -7);
+    Fraction f6 = -f5;
+    result = f6.toString();
+    Test("Opposite Operator", "3/7", result);
+    Fraction f7(0, -2);
+    Fraction f8 = -f7;
+    result = f8.toString();
+    Test("Opposite Operator", "0/2", result);
+}

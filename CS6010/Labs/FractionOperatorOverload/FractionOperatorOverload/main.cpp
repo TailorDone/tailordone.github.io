@@ -25,5 +25,6 @@ int main(int argc, const char * argv[]) {
     TestGreaterThan();
     TestLessThanOrEqualTo();
     TestGreaterThanOrEqualTo();
+    TestOpposite();
     return 0;
 }

@@ -29,6 +29,7 @@ public:
     Fraction& operator-=(Fraction rhs);
     Fraction& operator*=(Fraction rhs);
     Fraction& operator/=(Fraction rhs);
+    Fraction& operator-();
     bool operator==(Fraction rhs);
     bool operator<(Fraction rhs);
 };

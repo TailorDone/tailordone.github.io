@@ -90,6 +90,11 @@ Fraction operator-(Fraction lhs, Fraction rhs){
     return lhs-=rhs;
 }
 
+Fraction& Fraction::operator-(){
+    numerator *=-1;
+    return *this;
+}
+
 Fraction& Fraction::operator*=(Fraction rhs){
     numerator *= rhs.numerator;
     denominator *= rhs.denominator;

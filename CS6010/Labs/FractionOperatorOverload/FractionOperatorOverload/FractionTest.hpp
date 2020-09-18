@@ -98,4 +98,6 @@ void TestLessThanOrEqualTo();
 
 void TestGreaterThanOrEqualTo();
 
+void TestOpposite();
+
 #endif /* FractionTest_hpp */
