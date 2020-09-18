@@ -16,13 +16,21 @@ MyVector::MyVector(int initialCapacity){
 }
 
 MyVector::MyVector(int initialCapacity, int desiredSize){
-    assert(initialCapacity >0);
+    assert(initialCapacity > 0);
     capacity = initialCapacity;
     size = desiredSize;
     beginning = new int[initialCapacity];
     for (int i = 0; i < size; i ++){
         set(i,i);
     }
+}
+
+int MyVector::operator[](int index) const{
+    return *(beginning + index);
+}
+     
+int& MyVector::operator[](int index){
+    return *(beginning + index);
 }
 
 int MyVector::getSize(){

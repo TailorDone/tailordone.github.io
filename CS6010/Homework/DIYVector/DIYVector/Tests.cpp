@@ -33,6 +33,11 @@ void runTests(){
     testVector.growVector();
     assert(testVector.getCapacity()==40); //Tests that grow vector changes the capacity
     assert(testVector.getSize() == 10); //But that grow vector does not change the size
+    assert(testVector[4]==4);
+    std::cout << "Printing testVector[4]: " << testVector[4] << std::endl;
+    testVector[4]=7;
+    assert(testVector[4]==7);
+    std::cout << "Printing testVector[4]: " << testVector[4] << std::endl;
     testVector.freeVector();
     //assert(testVector.beginning == nullptr); Unsure how to test freeVector now
 }

@@ -13,14 +13,7 @@
 #include <iostream>
 #include "Tests.hpp"
 
-//In this lab we'll modify the Vector struct/functions you wrote yesterday to make it more like std::vector. Re-organize your code by doing the following:
-//
-//change your vector struct into a vector class (this literally just requires replacing struct with class
-//make all your data members private
-//convert makeVector into a constructor
-//convert get, set, push_back, pop_back, growVector, and freeVector into methods
-//add methods getSize() and getCapacity() to return the size and capacity of the vector (since your member variables are now private, you need these methods for users to be able to see those values)
-//Modify your testing code to work with your reorganized vector code
+//Overload the [] operator (both versions) so you can access elements with the [] syntax like someVector[5] = 3; and cout << someVector[0];
 
 class MyVector{
     int* beginning;
@@ -37,6 +30,8 @@ public:
     void pushBack(int value);
     void popBack();
     void growVector();
+    int operator[](int index) const;
+    int& operator[](int index);
 };
 
 
