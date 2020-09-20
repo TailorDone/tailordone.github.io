@@ -13,13 +13,15 @@
 #include <iostream>
 #include "Tests.hpp"
 
-//Overload the [] operator (both versions) so you can access elements with the [] syntax like someVector[5] = 3; and cout << someVector[0];
-
 class MyVector{
     int* beginning;
     int capacity;
     int size;
 public:
+    MyVector(const MyVector& vector);//Copy Constructor
+    MyVector& operator=(const MyVector& vector); //Make a copy when the vector already exists
+    ~MyVector();//Deconstructor
+    
     MyVector(int intialCapacity); //Constructor
     MyVector(int initialCapacity, int desiredSize); //Constructor that fills in values up to desired size
     void freeVector();

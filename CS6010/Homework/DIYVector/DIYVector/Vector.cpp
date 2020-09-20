@@ -15,6 +15,31 @@ MyVector::MyVector(int initialCapacity){
     beginning = new int[initialCapacity];
 }
 
+MyVector::MyVector(const MyVector& vector){
+    assert(vector.capacity > 0);
+    capacity = vector.capacity;
+    size = vector.size;
+    beginning = new int[vector.capacity];
+}
+
+MyVector& MyVector::operator=(const MyVector& vector){
+    if (this == &vector){
+        return *this;
+    }
+    delete [] beginning;
+    beginning = new int[vector.capacity];
+    size = vector.size;
+    capacity = vector.capacity;
+    for(int i = 0; i < capacity; i++){
+        beginning[i] = vector.beginning[i];
+    }
+    return *this;
+}
+
+MyVector::~MyVector(){
+    delete [] beginning;
+}
+
 MyVector::MyVector(int initialCapacity, int desiredSize){
     assert(initialCapacity > 0);
     capacity = initialCapacity;

@@ -38,6 +38,13 @@ void runTests(){
     testVector[4]=7;
     assert(testVector[4]==7);
     std::cout << "Printing testVector[4]: " << testVector[4] << std::endl;
-    testVector.freeVector();
-    //assert(testVector.beginning == nullptr); Unsure how to test freeVector now
+    MyVector vector1 = MyVector(5);
+    MyVector vector2 = vector1;
+    assert(vector2.getCapacity()==5); //Testing =op
+    MyVector vector4(10);
+    vector4 = vector2;
+    assert(vector4.getCapacity()==5); //Testing copy constructor changed capacity from 10 to 5
+    //No errors at the end of running the code so deconstructor is working as expected
+    
+    
 }
