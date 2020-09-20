@@ -10,11 +10,11 @@
 #include "Vector.hpp"
 
 void runTests(){
-    MyVector testVector2 = MyVector(10);
+    MyVector testVector2 = MyVector<int>(10);
     assert(testVector2.getSize()==0); //Test that size starts at 0
     testVector2.popBack();
     assert(testVector2.getSize()==0); //Check that if the size is 0 that size doesn't go into the negatives
-    MyVector testVector = MyVector(10,10);
+    MyVector testVector = MyVector<int>(10,10);
     assert(testVector.getCapacity()==10); //Test that capacity is 10 after 10 values have been filled
     assert(testVector.getSize() == 10); //Test that size is 10 after 10 values have been filled
     assert(testVector.get(3) == 3); //Test that the value at index 3 is 3
@@ -38,13 +38,27 @@ void runTests(){
     testVector[4]=7;
     assert(testVector[4]==7);
     std::cout << "Printing testVector[4]: " << testVector[4] << std::endl;
-    MyVector vector1 = MyVector(5);
+    MyVector vector1 = MyVector<int>(5);
     MyVector vector2 = vector1;
     assert(vector2.getCapacity()==5); //Testing =op
-    MyVector vector4(10);
+    MyVector<int> vector4(10);
     vector4 = vector2;
     assert(vector4.getCapacity()==5); //Testing copy constructor changed capacity from 10 to 5
     //No errors at the end of running the code so deconstructor is working as expected
-    
-    
+    MyVector stringVector = MyVector<std::string>(5);
+    stringVector.pushBack("hello");
+    stringVector.pushBack("my");
+    stringVector.pushBack("name");
+    stringVector.pushBack("is");
+    stringVector.pushBack("Taylor");
+    for (int i = 0; i < stringVector.getSize(); i++){
+        std::cout << stringVector.get(i) <<std::endl;
+    }
+    assert(stringVector.getSize()==5);
+    assert(stringVector.get(2)=="name");
+    stringVector.set(0, "HIYA HEY HEY!");
+    assert(stringVector.get(0) == "HIYA HEY HEY!");
+    for (int i = 0; i < stringVector.getSize(); i++){
+        std::cout << stringVector.get(i) <<std::endl;
+    }
 }
