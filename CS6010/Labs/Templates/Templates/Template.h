@@ -7,6 +7,7 @@
 
 #ifndef Template_h
 #define Template_h
+#include <vector>
 
 template<typename T>
 struct Triple{
@@ -14,7 +15,6 @@ struct Triple{
 public:
     Triple(T a_, T b_, T c_);//Constructor
     T sum();
-    Triple(std::vector<T> vect);
 };
 
 template<typename T>

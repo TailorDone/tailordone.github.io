@@ -6,6 +6,7 @@
 //
 
 #include <iostream>
+
 #include "Template.h"
 
 int main(int argc, const char * argv[]) {
@@ -31,5 +32,12 @@ int main(int argc, const char * argv[]) {
     std::cout << "The result of the triple is: " << doubleResult << std::endl;
     std::cout << "Accessing the 2nd element is: " << doubleTest.b << std::endl;
     
+    std::vector<int> vector1 = {1,2,3,4,5};
+    std::vector<int> vector2 = {2,3,4};
+    std::vector<int> vector3 = {5,7,2,3,1};
+    Triple<std::vector<int>> vectorTest = Triple<std::vector<int>>(vector1, vector2, vector3);
+    //Code compiles up to this point
+    //std::vector<int> vectorResult = vectorTest.sum();
+    //Build fails here because the add method doesn't work on the vectors
     return 0;
 }
