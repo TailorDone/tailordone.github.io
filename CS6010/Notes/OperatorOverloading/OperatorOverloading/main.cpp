@@ -76,7 +76,24 @@ int main(int argc, const char * argv[]) {
     std::cout << "empty string: " << s.cstring() << std::endl;
     MyString s2("hello world");
     std::cout << s2.cstring() << std::endl;
-    MyString s3=s2;
+    {
+        //the MyString s3 is making a new object. So we have the opportuinty to add a new constructor. We want to take s2 as a parameter.
+        //WE want to run a copy constructor.
+        
+    MyString s3=s2;//something went wrong here. looks like you are making a copy of s2, but what's happening is we are giving it the same pointer. This is called a shallow copy. Makes a duplicate pointer as opposed to a copy
     std::cout << s3.cstring() <<std::endl;
-    return 0;
-}
+    } //s3 destructor called
+    
+    {
+    MyString s4;//default constructor
+    s4=s2; //we didn't call the copy constructor here. s4 already exists
+    std::cout <<s4.cstring() << " from s4" << std::endl;
+    s4=s4;
+    }
+    //So we are going to overload operator equals
+    return 0; //s2 destructor called
+} //pointer to the same array on the heap
+
+//For <=>Project Settings, c++lanugage other dialect c++2a
+
+// ahve to use new keyword to allocate new memory

@@ -15,8 +15,15 @@ class MyString{
 public:
     MyString();
     MyString(const char* str);
-    const char* cstring() const;
+    
+    //The rule of 3
+    MyString(MyString& rhs);// copy constructor, make a brand new copy
+    MyString& operator=(const MyString& rhs); //make a copy when the lhs already exists
     ~MyString(); //deconstructor
+    //If your class has pointers, you probably need the rule of 3.
+    
+    
+    const char* cstring() const;//return the pointer
 private:
     int length;
     char* data;
