@@ -39,12 +39,14 @@ void runTests(){
     assert(testVector[4]==7);
     std::cout << "Printing testVector[4]: " << testVector[4] << std::endl;
     MyVector vector1 = MyVector<int>(5);
-    MyVector vector2 = vector1;
+    MyVector vector2 = vector1; //Copy Constructor
     assert(vector2.getCapacity()==5); //Testing =op
     MyVector<int> vector4(10);
-    vector4 = vector2;
+    vector4 = vector2; //op=
     assert(vector4.getCapacity()==5); //Testing copy constructor changed capacity from 10 to 5
+    
     //No errors at the end of running the code so deconstructor is working as expected
+    
     MyVector stringVector = MyVector<std::string>(5);
     stringVector.pushBack("hello");
     stringVector.pushBack("my");
@@ -54,6 +56,7 @@ void runTests(){
     for (int i = 0; i < stringVector.getSize(); i++){
         std::cout << stringVector.get(i) <<std::endl;
     }
+   
     assert(stringVector.getSize()==5);
     assert(stringVector.get(2)=="name");
     stringVector.set(0, "HIYA HEY HEY!");
@@ -61,4 +64,66 @@ void runTests(){
     for (int i = 0; i < stringVector.getSize(); i++){
         std::cout << stringVector.get(i) <<std::endl;
     }
+    
+    MyVector<int> multFive(4);
+    multFive.pushBack(5);
+    multFive.pushBack(10);
+    multFive.pushBack(15);
+    multFive.pushBack(20);
+    for (int i = 0; i < 4; i++){
+        std::cout << multFive.get(i) << std::endl;
+    }
+    
+    MyVector<int> duplicateFive(4);
+    duplicateFive.pushBack(5);
+    duplicateFive.pushBack(10);
+    duplicateFive.pushBack(15);
+    duplicateFive.pushBack(20);
+    for (int i = 0; i < 4; i++){
+        std::cout << duplicateFive.get(i) << std::endl;
+    }
+    
+    assert(duplicateFive == multFive);
+    
+    MyVector<int> multFour(4);
+    multFour.pushBack(4);
+    multFour.pushBack(8);
+    multFour.pushBack(12);
+    multFour.pushBack(16);
+
+    assert(multFour != multFive);
+    
+    MyVector<std::string> words(4);
+    words.pushBack("ab");
+    words.pushBack("cd");
+    words.pushBack("ef");
+    words.pushBack("gh");
+    
+    MyVector<std::string> sameWords = words;
+    
+    assert(sameWords == words);
+    
+    MyVector<std::string> words2(4);
+    words.pushBack("ab");
+    words.pushBack("ef");
+    words.pushBack("cd");
+    words.pushBack("gh");
+    
+    assert(sameWords != words2);
+    
+    assert(words < words2);
+    
+    MyVector<int> test1(3);
+    test1.pushBack(0);
+    test1.pushBack(0);
+    test1.pushBack(1);
+    
+    MyVector<int> test2(1);
+    test2.pushBack(1);
+    
+    MyVector<int> test3(1);
+    test3.pushBack(2);
+       
+    assert(test2 > test1);
+    assert(test2 < test3);
 }
