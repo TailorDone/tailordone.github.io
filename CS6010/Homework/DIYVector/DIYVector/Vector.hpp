@@ -39,6 +39,11 @@ public:
     T& operator[](int index);
     bool operator==(const MyVector<T>& rhs);
     bool operator<(const MyVector<T>& rhs);
+
+    T* begin() const;
+    T* end() const;
+    T* begin();
+    T* end();
 };
 
 template <typename T>
@@ -208,6 +213,23 @@ void MyVector<T>::growVector(){
     capacity = biggerVec.capacity;
     beginning = biggerVec.beginning;
     biggerVec.beginning = nullptr;
+}
+
+template <typename T>
+T* MyVector<T>::begin() const {
+    return beginning;
+}
+template <typename T>
+T* MyVector<T>::end() const {
+    return this->begin() + size;
+}
+template <typename T>
+T* MyVector<T>::begin() {
+    return beginning;
+}
+template <typename T>
+T* MyVector<T>::end() {
+    return this->begin() + size;
 }
 
 #endif /* Vector_hpp */

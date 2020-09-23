@@ -10,5 +10,6 @@
 #define Tests_hpp
 
 #include <stdio.h>
+#include <numeric>
 void runTests();
 #endif /* Tests_hpp */

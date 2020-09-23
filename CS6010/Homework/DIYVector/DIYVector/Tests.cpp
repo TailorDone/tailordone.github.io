@@ -126,4 +126,23 @@ void runTests(){
        
     assert(test2 > test1);
     assert(test2 < test3);
+    
+    for (int i : testVector)
+            std::cout << i << " ";
+        std::cout << std::endl;
+        std::sort(testVector.begin(), testVector.end());
+        for (int i : testVector)
+            std::cout << i << " ";
+        std::cout << std::endl;
+        int* min = std::min_element(testVector.begin(), testVector.end());
+        std::cout << "min element: " << *min << std::endl;
+        int sum = std::accumulate(testVector.begin(), testVector.end(), 0);
+        std::cout << "sum elements: " << sum << std::endl;
+        int count = std::count_if(testVector.begin(), testVector.end(), [](int i) { return i % 2 == 0;});
+        std::cout << "count: " << count << std::endl;
+        std::remove_if(testVector.begin(), testVector.end(), [](int i) { return i % 2 == 0;});
+        for (int i = 0; i < count; i++)
+        testVector.popBack();
+        for (int i = 0; i < testVector.getSize(); i++)
+            std::cout << i << " ";
 }
