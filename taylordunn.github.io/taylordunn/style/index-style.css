@@ -1,0 +1,326 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {}
+
+body:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+header {
+    background-color: #FFF;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+main {
+    margin: 1% 5% 2% 5%;
+    background-color: #FFF;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    color: #000;
+}
+
+.logo {
+    margin-left: 3%;
+    text-align: left;
+    float: left;
+    max-height: 50px;
+    margin-top: 10px;
+}
+
+.logo:hover {
+    position: relative;
+    left: 5px;
+    height: auto;
+    display: block;
+    z-index: 999;
+}
+
+
+nav ul li {
+    display: inline-block;
+    padding: 25px 2px 0px 15px;
+    margin: 2px;
+}
+
+
+a{
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+a:hover{
+    position: relative;
+    left: 5px;
+    height: auto;
+    z-index: 999;
+}
+
+nav a {
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+
+nav ul li a.active {
+    border-bottom: 3px solid #00526D;
+}
+
+nav ul li a:hover {
+    border-bottom: 3px solid #AE1B00;
+    position: relative;
+    left: 5px;
+    height: auto;
+    display: block;
+    z-index: 999;
+}
+
+
+#banner {
+    text-align: center;
+}
+
+#banner img {
+    height: auto;
+    max-width: 70%;
+    float: left;
+    margin-top: 3%;
+}
+
+h1 {
+    color: #000;
+    border-bottom: solid #00526D;
+    text-align: center;
+}
+
+h2 {
+    color: #000;
+    border-bottom: #00526D;
+    text-align: left;
+    margin: 1% 5%;
+}
+
+h3 {
+    color: #000;
+    border-bottom: #00526D;
+    text-align: left;
+    margin: 1% 5%;
+}
+
+p {
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 18px;
+    line-height: 1.75rem;
+    word-spacing: 0.5rem;
+}
+
+#bannerInfo {
+    visibility: hidden;
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    margin: 0;
+}
+
+
+
+#AboutMe {
+    width: 28%;
+    float: right;
+    margin-top: 2%;
+}
+
+#Intro {
+    margin-top: 5%;
+    font-size: 18px;
+    margin-left: 5%;
+}
+
+
+#Work {
+    float: right;
+    width: 75%;
+    margin-right: 5%;
+    margin-bottom: 3%;
+}
+
+.WorkList li {
+    margin: 0% 5% 0.5% 10%;
+    font-size: 18px;
+    text-align: left;
+}
+
+#WorkExp img {
+    height: auto;
+    max-width: 100%;
+    float: left;
+    margin-top: 10%;
+    
+}
+
+#WorkExp {
+    float: left;
+    width: 20%;
+}
+
+.JobTitle {
+    float: left;
+    width: 40%
+}
+
+.WorkDate {
+    float: right;
+    text-align: right;
+    width: 20%
+}
+
+.WorkInfo {
+    margin-top: 5%;
+}
+
+
+#Schools {
+    width: 80%;
+}
+
+#Schools ul {
+    font-size: 18px;
+    margin-left: 10%;
+    margin-top: 2%;
+}
+
+#Schools h2,
+h3,
+h4,
+p {
+    text-align: left;
+    margin-top: 1%;
+}
+
+
+#Schools h1 {
+    text-align: center;
+    margin-top: 2%;
+}
+
+#Schools li{
+    padding-top: 2%;
+}
+
+#Logos{
+    width: 15%;
+    float: right;
+}
+
+.Lucid {
+    height: 250px;
+    float: left;
+}
+
+#Skills li{
+    margin: 0.5% 5% 0.5% 10%;
+    font-size: 18px;
+    text-align: left;
+}
+#Skills{
+    float: left;
+    width: 60%;
+}
+
+#CoachPic{
+    float: right;
+    width: 35%;
+}
+#CoachPic img{
+   width: 90%;
+    margin-top: 5%;
+}
+
+#Interests{
+    width: 45%;
+    float: left;
+}
+
+#Interests p{
+    margin: 0px 5%;
+}
+
+#Goals{
+    width: 45%;
+    float: right;
+}
+
+#Goals p{
+    margin: 0px 5% 15% 5%;
+}
+
+
+.Contact{
+    width: 30%;
+    float: left;
+    padding-right: 1%;
+    padding-left: 1%;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.Contact p{
+    text-align: center;
+    margin-left: 0;
+}
+
+footer {
+    height: 20px;
+    background-color: #00526D;
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 5px;
+    margin: 0;
+    width: 100%;
+}
+#IntPic{
+    text-align: center;
+}
+
+#collage{
+    height: 250px;
+    padding-top: 2%;
+    width: 88%;
+    height: auto;
+}
+
+.Contact img{
+    width: 80%;
+    height: auto;
+}
+
+footer p{
+    clear: both;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    font-size: 12px;
+    margin: 0px;
+    text-align: right;
+}  
+
