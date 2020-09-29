@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 
 rt url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+=======
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+>>>>>>> 7ebadb602c81edfd1e63c16ba48aab7de33aab3c
 
 * {
     margin: 0;
@@ -22,6 +26,10 @@ ul li {
 }
 ul{
     border: solid crimson;
+<<<<<<< HEAD
+=======
+    text-align:center;
+>>>>>>> 7ebadb602c81edfd1e63c16ba48aab7de33aab3c
 }
 
 h1 {
@@ -57,9 +65,16 @@ p {
     line-height: 1.5rem;
 }
 img{
+<<<<<<< HEAD
     height: auto;
     max-width: 100%;
     text-align: center;
+=======
+    height: 678px;
+   max-width: 836px;
+    text-align: center;
+
+>>>>>>> 7ebadb602c81edfd1e63c16ba48aab7de33aab3c
 }
 
 a{
