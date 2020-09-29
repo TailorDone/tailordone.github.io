@@ -56,9 +56,10 @@ p {
     line-height: 1.5rem;
 }
 img{
-    height: auto;
-    max-width: auto;
-    text-align: center;
+    height: 678px;
+   max-width: 836px;
+    text-align: center
+
 }
 
 a{
