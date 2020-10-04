@@ -99,10 +99,13 @@ nav ul li a:hover {
 }
 
 #banner img {
+    position:fixed;
     height: auto;
-    max-width: 70%;
+    max-width: 65%;
     float: left;
-    margin-top: 3%;
+    top: 20%;
+    left: 3%;
+    
 }
 
 h1 {
@@ -126,8 +129,6 @@ h3 {
 }
 
 p {
-    margin-left: 5%;
-    margin-right: 5%;
     font-size: 18px;
     line-height: 1.75rem;
     word-spacing: 0.5rem;
@@ -144,22 +145,21 @@ p {
 
 
 #AboutMe {
-    width: 28%;
+    width: 30%;
     float: right;
-    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 #Intro {
-    margin-top: 5%;
     font-size: 18px;
-    margin-left: 5%;
+    text-align: center;
+    margin-top: 4%;
 }
 
 
-#Work {
+#Experience {
     float: right;
-    width: 75%;
-    margin-right: 5%;
+    width: 100%;
     margin-bottom: 3%;
 }
 
@@ -170,10 +170,11 @@ p {
 }
 
 #WorkExp img {
-    height: auto;
+    position: fixed;
+    height: 90%;
     max-width: 100%;
-    float: left;
-    margin-top: 10%;
+    left: 2%;
+    top: 7%;
     
 }
 
@@ -227,20 +228,19 @@ p {
 }
 
 #Logos{
+    position:fixed;
+    top: 5%;
+    left: 80%;
     width: 15%;
-    float: right;
 }
 
-.Lucid {
-    height: 250px;
-    float: left;
-}
 
 #Skills li{
     margin: 0.5% 5% 0.5% 10%;
     font-size: 18px;
     text-align: left;
 }
+
 #Skills{
     float: left;
     width: 60%;
@@ -275,12 +275,12 @@ p {
 
 
 .Contact{
-    width: 30%;
-    float: left;
-    padding-right: 1%;
-    padding-left: 1%;
+    width: 31%;
+    float:right;
+    padding-right: 0.5%;
+    padding-left: 0.5%;
     text-align: center;
-    margin-top: 2%;
+    margin-top: 5%;
 }
 
 .Contact p{
