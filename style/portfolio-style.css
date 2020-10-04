@@ -218,6 +218,13 @@ p {
 }
 
 
+#schoolPic img{
+    position: fixed;
+    float: right;
+    left: 80%;
+    top: 20%;
+}
+
 #Schools h1 {
     text-align: center;
     margin-top: 2%;
