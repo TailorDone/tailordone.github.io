@@ -195,7 +195,8 @@ p {
 }
 
 .WorkInfo {
-    margin-top: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 
@@ -263,21 +264,12 @@ p {
 }
 
 #Interests{
-    width: 45%;
-    float: left;
+    width: 100%;
+    margin-top: 3%;
 }
 
 #Interests p{
     margin: 0px 5%;
-}
-
-#Goals{
-    width: 45%;
-    float: right;
-}
-
-#Goals p{
-    margin: 0px 5% 15% 5%;
 }
 
 
